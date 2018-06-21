@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;">
+<head>
+    <!-- meta使用viewport以确保页面可自由缩放 -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- 引入 底层css 样式 -->
+    <link type="text/css" rel="stylesheet" href="/Mobile/WeChat/_css/common.css" />
+    <link type="text/css" rel="stylesheet" href="/Mobile/WeChat/_css/CommonPartially.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.min.css">
+    <link href="/_control/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/_control/layui/css/layui.css" rel="stylesheet" type="text/css" />
+    <!-- 引入 底层Js 库-->
+    <script type="text/javascript" language="javascript" src="/Mobile/WeChat/_js/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/Mobile/WeChat/_js/common.js"></script>
+    <script type="text/javascript" language="javascript" src="Index.js"></script>
+    <!-- 引入 layer 库-->
+    <script type="text/javascript" language="javascript" src="/Mobile/WeChat/_control/layer_mobile/layer.js"></script>
+    <!-- 引入Swiper轮播插件-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.min.js"></script>
+    <!--引入hammer.js-->
+    <script src="https://cdn.bootcss.com/hammer.js/2.0.8/hammer.js"></script>
+    <!--瀑布流 布局插件-->
+    <script src="https://cdn.bootcss.com/masonry/4.2.1/masonry.pkgd.js"></script>
+    <title>会员中心</title>
+</head>
+<body style="background-color: #F6F6F6;">
+    <div id="app" style="position: relative">
+        <div id="IndexInfo" style="display: block;">
+            <!--首页-->
+            <div id="Index0" class="Index" style="display: block;">
+                <!--顶部-->
+                <div class="index0_TopWrapper" style="position: relative">
+                    <!--头部文字-->
+                    <div class="currentAddressWrapper" style="color: White; font-weight: bold;">
+                        <i class="fas fa-map-marker-alt"></i><span style="margin: 0 3px 0 5px;">亚太商谷1栋</span>
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                    <!--搜索栏-->
+                    <div class="searchWrapper">
+                        <div id="search" class="searchs" style="z-index: 9999">
+                            <input type="text" class="text" placeholder="搜索">
+                        </div>
+                    </div>
+                    <!--公司栏-->
+                    <div class="customerBar">
+                        <ul>
+                            <li>男装</li>
+                            <li>女装</li>
+                            <li>玩具</li>
+                            <li>家具</li>
+                            <li>首饰</li>
+                            <li>电器</li>
+                            <li>小吃</li>
+                            <li>鞋袜</li>
+                        </ul>
+                    </div>
+                </div>
+                <!--选择列表-->
+                <div class="index0_MiddleWrapper">
+                    <ul class="index0_MiddleWrapper_carousel">
+                        <li>
+                            <ul>
+                                <li>
+                                    <div>
+                                        <img src="../../_image/Login.jpg" class="index0_MiddleWrapper_carousel_img" />
+                                    </div>
+                                    <div>
+                                        <span class="carousel_font">儿童玩具</span></div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="../../_image/Login.jpg" class="index0_MiddleWrapper_carousel_img" />
+                                    </div>
+                                    <div>
+                                        <span class="carousel_font">儿童玩具</span></div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="../../_image/Login.jpg" class="index0_MiddleWrapper_carousel_img" />
+                                    </div>
+                                    <div>
+                                        <span class="carousel_font">儿童玩具</span></div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="../../_image/Login.jpg" class="index0_MiddleWrapper_carousel_img" />
+                                    </div>
+                                    <div>
+                                        <span class="carousel_font">儿童玩具</span></div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="../../_image/Login.jpg" class="index0_MiddleWrapper_carousel_img" />
+                                    </div>
+                                    <div>
+                                        <span class="carousel_font">儿童玩具</span></div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="../../_image/Login.jpg" class="index0_MiddleWrapper_carousel_img" />
+                                    </div>
+                                    <div>
+                                        <span class="carousel_font">儿童玩具</span></div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="../../_image/Login.jpg" class="index0_MiddleWrapper_carousel_img" />
+                                    </div>
+                                    <div>
+                                        <span class="carousel_font">儿童玩具</span></div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="../../_image/Login.jpg" class="index0_MiddleWrapper_carousel_img" />
+                                    </div>
+                                    <div>
+                                        <span class="carousel_font">儿童玩具</span></div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="../../_image/Login.jpg" class="index0_MiddleWrapper_carousel_img" />
+                                    </div>
+                                    <div>
+                                        <span class="carousel_font">儿童玩具</span></div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="../../_image/Login.jpg" class="index0_MiddleWrapper_carousel_img" />
+                                    </div>
+                                    <div>
+                                        <span class="carousel_font">儿童玩具</span></div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul>
+                                <li>
+                                    <div>
+                                        <img src="../../_image/Login.jpg" class="index0_MiddleWrapper_carousel_img" />
+                                    </div>
+                                    <div>
+                                        <span class="carousel_font">服装</span></div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="../../_image/Login.jpg" class="index0_MiddleWrapper_carousel_img" />
+                                    </div>
+                                    <div>
+                                        <span class="carousel_font">服装</span></div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="../../_image/Login.jpg" class="index0_MiddleWrapper_carousel_img" />
+                                    </div>
+                                    <div>
+                                        <span class="carousel_font">服装</span></div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="../../_image/Login.jpg" class="index0_MiddleWrapper_carousel_img" />
+                                    </div>
+                                    <div>
+                                        <span class="carousel_font">服装</span></div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="../../_image/Login.jpg" class="index0_MiddleWrapper_carousel_img" />
+                                    </div>
+                                    <div>
+                                        <span class="carousel_font">服装</span></div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="../../_image/Login.jpg" class="index0_MiddleWrapper_carousel_img" />
+                                    </div>
+                                    <div>
+                                        <span class="carousel_font">服装</span></div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="../../_image/Login.jpg" class="index0_MiddleWrapper_carousel_img" />
+                                    </div>
+                                    <div>
+                                        <span class="carousel_font">服装</span></div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="../../_image/Login.jpg" class="index0_MiddleWrapper_carousel_img" />
+                                    </div>
+                                    <div>
+                                        <span class="carousel_font">服装</span></div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="../../_image/Login.jpg" class="index0_MiddleWrapper_carousel_img" />
+                                    </div>
+                                    <div>
+                                        <span class="carousel_font">服装</span></div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="../../_image/Login.jpg" class="index0_MiddleWrapper_carousel_img" />
+                                    </div>
+                                    <div>
+                                        <span class="carousel_font">服装</span></div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="index0_MiddleWrapper_control">
+                        <li class="activeCarousel"></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <!--图片-->
+                <div class="swiper-container" style="padding: .1rem;">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide Imgs" style="background-color: Green">
+                            <img style="width: 100%; margin: 0 auto; height: 100%;" src="http://wx.zeke.cn/UpLoad/%E5%BD%A2%E8%B1%A1%E5%9B%BE/A.JPG"
+                                alt="" /></div>
+                        <div class="swiper-slide Imgs" style="background-color: red">
+                            <img style="width: 100%; margin: 0 auto; height: 100%;" src="http://wx.zeke.cn/UpLoad/%E5%BD%A2%E8%B1%A1%E5%9B%BE/B.JPG"
+                                alt="" /></div>
+                        <div class="swiper-slide Imgs" style="background-color: Gray">
+                            <img style="width: 100%; margin: 0 auto; height: 100%;" src="http://wx.zeke.cn/UpLoad/%E5%BD%A2%E8%B1%A1%E5%9B%BE/C.JPG"
+                                alt="" /></div>
+                        <div class="swiper-pagination " style="margin: 26% 0 0 45%;">
+                        </div>
+                    </div>
+                </div>
+                <!--推荐商家-->
+                <div class="recommendMerchant" style="margin-bottom: 30px;">
+                    <div class="recommendMerchant_topWrapper">
+                        <div class="recommendMerchant_title">
+                            <i class="cut_off_rule"></i><i class="dot" style="margin: 0 .1rem 0 .03rem"></i>
+                            <span>推荐商家</span><i class="dot" style="margin: 0 .03rem 0 .1rem"></i><i class="cut_off_rule"></i>
+                        </div>
+                        <div class="recommendMerchant_content">
+                            <ul class="recommendMerchant_sort_item">
+                                <li>
+                                    <div>
+                                        <span>综合排序</span> <i class="fas fa-caret-down sort_triangle"></i>
+                                    </div>
+                                    <div class="sort_mode" style="display: none;">
+                                        <ul>
+                                            <li><span>综合排序</span><span class="check"><i class="fa fa-check"></i></span></li>
+                                            <li><span>销量最高</span></li>
+                                            <li><span>起送价最低</span></li>
+                                            <li><span>配送最快</span></li>
+                                            <li><span>配送费最低</span></li>
+                                            <li><span>人均从低到高</span></li>
+                                            <li><span>人均从高到低</span></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>好评优先 </li>
+                                <li>距离最近 </li>
+                                <li>筛选 <i class="fa fa-filter" aria-hidden="true" style="color: gray;"></i></li>
+                            </ul>
+                            <!--推荐商家列表-->
+                            <div class="recommendMerchant_content_list">
+                                <!--遮罩-->
+                                <div class="recommendMerchant_shadow">
+                                </div>
+                                <ul>
+                                    <li>
+                                        <div class="recommendMerchant_content_list_left">
+                                            <div class="recommendMerchant_content_list_left_topImg">
+                                                <img src="../../_image/Login.jpg" />
+                                            </div>
+                                        </div>
+                                        <div class="recommendMerchant_content_list_right">
+                                            <div class="recommendMerchant_content_list_right_brandName">
+                                                <span class="brandNameFont">大米先生(亚太路店)</span> <span class="brandNameIcon">...</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_starLevel">
+                                                <span class="starLevelIcon"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                </span><span class="starLevelNum">4.8</span> <span>月售705</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_dispatchingInfo clearfix">
+                                                <span><span>起送￥15元</span> <i>|</i> <span>配送￥4元</span> </span><span>38分钟|173m</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_category">
+                                                <span>川湘菜</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_fullReduction">
+                                                <i class="fullReduction_bargainPrice">满减</i><span>满10减6,满30减15,满50减20</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_bargainPrice">
+                                                <i class="fullReduction_bargainPrice">特价</i><span>特价商品一元起</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_nearby">
+                                                <i class="fas fa-map-marker-alt"></i><span>附近还有4家大米先生</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="recommendMerchant_content_list_left">
+                                            <div class="recommendMerchant_content_list_left_topImg">
+                                                <img src="../../_image/Login.jpg" />
+                                            </div>
+                                        </div>
+                                        <div class="recommendMerchant_content_list_right">
+                                            <div class="recommendMerchant_content_list_right_brandName">
+                                                <span class="brandNameFont">大米先生(亚太路店)</span> <span class="brandNameIcon">...</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_starLevel">
+                                                <span class="starLevelIcon"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                </span><span class="starLevelNum">4.8</span> <span>月售705</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_dispatchingInfo clearfix">
+                                                <span><span>起送￥15元</span> <i>|</i> <span>配送￥4元</span> </span><span>38分钟|173m</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_category">
+                                                <span>川湘菜</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_fullReduction">
+                                                <i class="fullReduction_bargainPrice">满减</i><span>满10减6,满30减15,满50减20</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_bargainPrice">
+                                                <i class="fullReduction_bargainPrice">特价</i><span>特价商品一元起</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_nearby">
+                                                <i class="fas fa-map-marker-alt"></i><span>附近还有4家大米先生</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="recommendMerchant_content_list_left">
+                                            <div class="recommendMerchant_content_list_left_topImg">
+                                                <img src="../../_image/Login.jpg" />
+                                            </div>
+                                        </div>
+                                        <div class="recommendMerchant_content_list_right">
+                                            <div class="recommendMerchant_content_list_right_brandName">
+                                                <span class="brandNameFont">大米先生(亚太路店)</span> <span class="brandNameIcon">...</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_starLevel">
+                                                <span class="starLevelIcon"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                </span><span class="starLevelNum">4.8</span> <span>月售705</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_dispatchingInfo clearfix">
+                                                <span><span>起送￥15元</span> <i>|</i> <span>配送￥4元</span> </span><span>38分钟|173m</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_category">
+                                                <span>川湘菜</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_fullReduction">
+                                                <i class="fullReduction_bargainPrice">满减</i><span>满10减6,满30减15,满50减20</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_bargainPrice">
+                                                <i class="fullReduction_bargainPrice">特价</i><span>特价商品一元起</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_nearby">
+                                                <i class="fas fa-map-marker-alt"></i><span>附近还有4家大米先生</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="recommendMerchant_content_list_left">
+                                            <div class="recommendMerchant_content_list_left_topImg">
+                                                <img src="../../_image/Login.jpg" />
+                                            </div>
+                                        </div>
+                                        <div class="recommendMerchant_content_list_right">
+                                            <div class="recommendMerchant_content_list_right_brandName">
+                                                <span class="brandNameFont">大米先生(亚太路店)</span> <span class="brandNameIcon">...</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_starLevel">
+                                                <span class="starLevelIcon"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                </span><span class="starLevelNum">4.8</span> <span>月售705</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_dispatchingInfo clearfix">
+                                                <span><span>起送￥15元</span> <i>|</i> <span>配送￥4元</span> </span><span>38分钟|173m</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_category">
+                                                <span>川湘菜</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_fullReduction">
+                                                <i class="fullReduction_bargainPrice">满减</i><span>满10减6,满30减15,满50减20</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_bargainPrice">
+                                                <i class="fullReduction_bargainPrice">特价</i><span>特价商品一元起</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_nearby">
+                                                <i class="fas fa-map-marker-alt"></i><span>附近还有4家大米先生</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="recommendMerchant_content_list_left">
+                                            <div class="recommendMerchant_content_list_left_topImg">
+                                                <img src="../../_image/Login.jpg" />
+                                            </div>
+                                        </div>
+                                        <div class="recommendMerchant_content_list_right">
+                                            <div class="recommendMerchant_content_list_right_brandName">
+                                                <span class="brandNameFont">大米先生(亚太路店)</span> <span class="brandNameIcon">...</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_starLevel">
+                                                <span class="starLevelIcon"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                </span><span class="starLevelNum">4.8</span> <span>月售705</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_dispatchingInfo clearfix">
+                                                <span><span>起送￥15元</span> <i>|</i> <span>配送￥4元</span> </span><span>38分钟|173m</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_category">
+                                                <span>川湘菜</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_fullReduction">
+                                                <i class="fullReduction_bargainPrice">满减</i><span>满10减6,满30减15,满50减20</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_bargainPrice">
+                                                <i class="fullReduction_bargainPrice">特价</i><span>特价商品一元起</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_nearby">
+                                                <i class="fas fa-map-marker-alt"></i><span>附近还有4家大米先生</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="recommendMerchant_content_list_left">
+                                            <div class="recommendMerchant_content_list_left_topImg">
+                                                <img src="../../_image/Login.jpg" />
+                                            </div>
+                                        </div>
+                                        <div class="recommendMerchant_content_list_right">
+                                            <div class="recommendMerchant_content_list_right_brandName">
+                                                <span class="brandNameFont">大米先生(亚太路店)</span> <span class="brandNameIcon">...</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_starLevel">
+                                                <span class="starLevelIcon"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                </span><span class="starLevelNum">4.8</span> <span>月售705</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_dispatchingInfo clearfix">
+                                                <span><span>起送￥15元</span> <i>|</i> <span>配送￥4元</span> </span><span>38分钟|173m</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_category">
+                                                <span>川湘菜</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_fullReduction">
+                                                <i class="fullReduction_bargainPrice">满减</i><span>满10减6,满30减15,满50减20</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_bargainPrice">
+                                                <i class="fullReduction_bargainPrice">特价</i><span>特价商品一元起</span>
+                                            </div>
+                                            <div class="recommendMerchant_content_list_right_nearby">
+                                                <i class="fas fa-map-marker-alt"></i><span>附近还有4家大米先生</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 商业用户菜单 -->
+                <!-- <div class="bt">
+                    <div class="menu">
+                        <div class="menu_item bb br">
+                            <a href="/Mobile/WeChat/PromotionManager/Promotion.htm">
+                                <img src="/Mobile/WeChat/_image/Promotion.jpg" alt="" class="icon" />
+                                <div class="menu_text">
+                                    最新活动</div>
+                            </a>
+                        </div>
+                        <div class="menu_item bb br">
+                            <a href="/Mobile/WeChat/BrandManager/Brand.htm">
+                                <img src="/Mobile/WeChat/_image/Brand.jpg" alt="" class="icon" />
+                                <div class="menu_text">
+                                    品牌查询</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <div class="menu_item bb br">
+                            <a href="">
+                                <img src="/Mobile/WeChat/_image/Wifi.png" alt="" class="icon" />
+                                <div class="menu_text">
+                                    WiFi链接</div>
+                            </a>
+                        </div>
+                        <div class="menu_item bb br">
+                            <a href="/Mobile/WeChat/PointsMallManager/PointsMall.htm">
+                                <img src="/Mobile/WeChat/_image/PointsMall.jpg" alt="" class="icon" />
+                                <div class="menu_text">
+                                    积分商城</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="content" id="RecommendedProducts">
+                </div>-->
+            </div>
+            <!--附近-->
+            <div id="Index1" class="Index" style="display: none;">
+                附近
+            </div>
+            <!--订单-->
+            <div id="Index2" class="Index" style="display: none;">
+                订单
+            </div>
+            <!--我的-->
+            <div id="Index3" class="Index" style="display: block;">
+                <!--头部-->
+                <!-- <div class="top c_fff">
+                    <div>
+                        <span>我的</span> <i class="layui-icon layui-icon-set fr" style="font-size: 18px; margin: 0 .05rem;">
+                        </i><i class="layui-icon layui-icon-notice fr" style="font-size: 18px; margin: 0 .05rem;">
+                        </i>
+                    </div>
+                    <div class="information">
+                        <img src="/Mobile/WeChat/_image/梅花.jpg" id="headimgurl" alt="" />
+                        <div class="top_L">
+                            <div style="font-size: 18px;" class="word-ellipsis" id="MemberName">
+                                asas
+                            </div>
+                            <div style="font-size: 13px; margin-top: .06rem;" class="word-ellipsis">
+                                17635463746</div>
+                        </div>
+                        <i class="layui-icon" style="font-size: 18px; float: right; line-height: 1rem;">&#xe602;</i>
+                    </div>
+                </div>-->
+                <!-- <div class="top_B">
+                    <div class="top_B1 integral">
+                        <div class="top_Name">
+                            积分</div>
+                        <span id="MemberScore"></span>
+                    </div>
+                    <a href="/Mobile/WeChat/MemberManager/Card.htm" class="top_B1 integral">
+                        <div class="top_Name">
+                            优惠卷</div>
+                        <span id="CouponNum">0</span> </a>
+                    <div class="top_B1" style="float: right;" onclick="InitControl.PhoneQRCode()">
+                        <div class="top_Name">
+                            扫我</div>
+                        <img src="/Mobile/WeChat/_image/ScanCode.png" style="width: .2rem; height: .2rem;" />
+                    </div>
+                </div>-->
+                <!--内容-->
+                <!--<div class="content" style="background-color: #FFFFFF; padding: 0;">
+                    <ul>
+                        <li>
+                            <img src="/Mobile/WeChat/_image/Business.png" /><a href="/Mobile/WeChat/MemberManager/OrderRecords.htm">关注商家</a></li>
+                        <li>
+                            <img src="/Mobile/WeChat/_image/Address.png" /><a href="/Mobile/WeChat/MemberManager/Exchange.htm">
+                                寄件地址</a> </li>
+                        <li style="height: .15rem; background-color: #f6f6f6;"></li>
+                        <li>
+                            <img src="/Mobile/WeChat/_image/Mall.png" /><a href="/Mobile/WeChat/MemberManager/BindInfo.htm">
+                                积分商城</a> </li>
+                        <li>
+                            <img src="/Mobile/WeChat/_image/Game.png" /><a href="/Mobile/WeChat/MemberManager/BindInfo.htm">
+                                积分游戏</a> </li>
+                        <li>
+                            <img src="/Mobile/WeChat/_image/Record.png" /><a href="/Mobile/WeChat/MemberManager/Card.htm">
+                                兑换记录</a> </li>
+                        <li>
+                            <img src="/Mobile/WeChat/_image/Recommend.png" /><a href="/Mobile/WeChat/MemberManager/BindInfo.htm">
+                                推荐有奖</a> </li>
+                    </ul>
+                </div>-->
+                <!--二维码-->
+                <!--  <div class="hide-body" id="hide-body" style="width: 100%; left: 0; height: 2.4rem;
+                    background-color: #EEF3FA;">
+                    <div class="close-window" style="width: 100%">-->
+                <!-- 关闭窗口，也就是触发关闭div的事件-->
+                <!-- <div class="close" onclick="InitControl.PhoneClose()" style="right: 5%;">
+                            ×</div>
+                    </div>
+                    <div style="position: relative; background-color: #D5BB7E; border-radius: .15rem;
+                        height: 2rem;">
+                        <div style="margin: 3% 10%; padding: 6% 0 3% 0;">
+                            No：<span id="MemberCode1"></span></div>
+                        <img class="MobilePhoneQRCode" id="MobilePhoneQRCode" style="width: 80%;" src="" />
+                    </div>
+                </div>
+                <div class="body-color" id="Back">
+                </div>-->
+            </div>
+            <!--底部-->
+            <div class="nav-body-footer">
+                <ul>
+                    <li class="nav-body-footlist"><a onclick="InitControl.ClickBottom(this)">
+                        <div class="nav-foot-fixed">
+                            <img src="/Mobile/WeChat/_image/nav_home_c.png" id="NavHome">
+                        </div>
+                        <div class="nav-body-font">
+                            <p class="nav-body-fontcss">
+                                首页</p>
+                        </div>
+                    </a></li>
+                    <li class="nav-body-footlist"><a onclick="InitControl.ClickBottom(this)">
+                        <div class="nav-foot-fixed">
+                            <!-- <img src="/Mobile/WeChat/_image/nav_mine_c.png">-->
+                            <img src="/Mobile/WeChat/_image/nav_address.png" id="NavAddress">
+                        </div>
+                        <div class="nav-body-font">
+                            <p class="nav-body-fontcss">
+                                附近</p>
+                        </div>
+                    </a></li>
+                    <li class="nav-body-footlist"><a onclick="InitControl.ClickBottom(this)">
+                        <div class="nav-foot-fixed">
+                            <img src="/Mobile/WeChat/_image/nav_order.png" id="NavOrder">
+                        </div>
+                        <div class="nav-body-font">
+                            <p class="nav-body-fontcss">
+                                订单</p>
+                        </div>
+                    </a></li>
+                    <li class="nav-body-footlist"><a onclick="InitControl.ClickBottom(this)">
+                        <div class="nav-foot-fixed">
+                            <img src="/Mobile/WeChat/_image/nav_mine.png" id="NavMine">
+                        </div>
+                        <div class="nav-body-font">
+                            <p class="nav-body-fontcss">
+                                我的</p>
+                        </div>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        <!--绑定手机号-->
+        <div id="BindInfo" class="BindInfo">
+            <div style="background: url(/Mobile/WeChat/_image/icon.png) no-repeat; background-size: 100% 100%;
+                height: 1rem; width: 60%; top: .45rem; position: fixed; left: 20%;">
+            </div>
+            <div style="width: 100%; margin-top: 1.6rem; height: 12rem;" class="">
+                <input type="text" id="MemberName1" placeholder="姓名" class="input" />
+                <input type="date" id="Birthday" placeholder="生日" class="input" />
+                <select class="input" id="MaritalStatus" style="padding-left: 30%;">
+                    <option value="已婚" selected="selected">已婚</option>
+                    <option value="未婚">未婚</option>
+                    <option value="单身">单身</option>
+                </select>
+                <input type="text" id="MobilePhone" placeholder="手机号" class="input" />
+                <!--  <div class="" style="height: .3rem; line-height.3rem; margin-bottom: .2rem;">
+                    <input type="text" id="ValidCode" placeholder="验证码" class="input" style="width: 40%" />
+                    <div id="btn_ValidCode" onclick="Bind.BindValidCode()" class="ValidCode">
+                        获取验证码</div>
+                </div>-->
+                <button class="button" onclick="Bind.BindMobilePhone()">
+                    提交</button>
+            </div>
+        </div>
+        <div class="body-color" id="Back1" style="background: url(/Mobile/WeChat/_image/index.jpeg) no-repeat;
+            background-size: 100%; opacity: 1;">
+        </div>
+    </div>
+</body>
+</html>
+<style>
+    .index0_TopWrapper
+    {
+        position: relative;
+        height: 1.5rem;
+        background: #1B8CE0;
+    }
+    .currentAddressWrapper
+    {
+        width: 100%;
+        background: #1B8CE0;
+        padding: .3rem .1rem .05rem;
+    }
+    
+    .customerBar
+    {
+        width: 100%;
+        height: .3rem;
+        background: #1B8CE0;
+        padding: 0 .1rem .05rem;
+        position: absolute;
+        bottom: 0;
+        z-index: 10;
+    }
+    .customerBar ul li
+    {
+        width: 12.5%;
+        float: left;
+        text-align: center;
+        color: White;
+    }
+    .searchWrapper
+    {
+        width: 100%;
+        background: #1B8CE0;
+        height: .49rem;
+        padding: .14rem .1rem .05rem;
+        position: relative;
+    }
+    .searchs
+    {
+        width: 100%;
+        position: relative;
+    }
+    .searchs .text
+    {
+        width: 100%;
+        height: .30rem;
+        background: url(/Mobile/WeChat/_image/search.png) no-repeat #FFFFFF;
+        background-size: .20rem; /*position: absolute;*/
+        color: #C5BFB9;
+        font-size: 14px;
+        padding: 0 .35rem;
+        background-position-x: .06rem;
+        background-position-y: .05rem;
+        outline: none;
+    }
+    
+    /*中间列表样式*/
+    .index0_MiddleWrapper
+    {
+        width: 100%;
+        height: 1.5rem;
+        margin-bottom: .1rem;
+        position: relative;
+    }
+    .index0_MiddleWrapper_carousel
+    {
+        width: 200%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        animation: mymove 5s infinite;
+    }
+    .index0_MiddleWrapper_carousel_img
+    {
+        width: 100%;
+        height: 100%;
+    }
+    .index0_MiddleWrapper_carousel li
+    {
+        width: 50%;
+        height: 100%;
+        float: left;
+    }
+    .index0_MiddleWrapper_carousel li ul
+    {
+        width: 100%;
+        height: 100%;
+        padding: .1rem;
+        position: relative;
+    }
+    .index0_MiddleWrapper_carousel li ul li
+    {
+        float: left;
+        width: 20%;
+        height: 50%;
+        padding: .05rem;
+    }
+    .index0_MiddleWrapper_carousel li ul li div:nth-child(1)
+    {
+        height: .34rem;
+    }
+    .index0_MiddleWrapper_carousel li ul li div:nth-child(2)
+    {
+        text-align: center;
+        color: #4d4d4d;
+        font-size: 12px;
+        margin-top: .05rem;
+    }
+    .index0_MiddleWrapper_control
+    {
+        width: .8rem;
+        height: .03rem;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        margin-left: -.4rem;
+    }
+    .index0_MiddleWrapper_control li
+    {
+        float: left;
+        width: .25rem;
+        height: 100%;
+        margin-left: .1rem;
+        background: #D1D1D1;
+    }
+    .index0_MiddleWrapper_control .activeCarousel
+    {
+        background: #1B8CE0;
+    }
+    
+    /*会员登录样式*/
+    .BindInfo
+    {
+        z-index: 999999;
+        position: fixed;
+        width: 100%;
+        display: none;
+    }
+    .BindInfo input::-webkit-input-placeholder
+    {
+        color: #857B75;
+        text-align: center;
+    }
+    .BindInfo input::-moz-placeholder
+    {
+        /* Mozilla Firefox 19+ */
+        color: #857B75;
+        text-align: center;
+    }
+    .BindInfo input:-moz-placeholder
+    {
+        /* Mozilla Firefox 4 to 18 */
+        color: #857B75;
+        text-align: center;
+    }
+    .BindInfo input:-ms-input-placeholder
+    {
+        /* Internet Explorer 10-11 */
+        color: #857B75;
+        text-align: center;
+    }
+    .BindInfo .input
+    {
+        border-radius: .02rem;
+        width: 74%;
+        margin-left: 13%;
+        text-align: center;
+        height: .3rem;
+        line-height: .3rem;
+        margin-bottom: .13rem;
+        background-color: #D799E2;
+        color: #857B75;
+    }
+    .BindInfo .button
+    {
+        background: url(/Mobile/WeChat/_image/btn_icon.png) no-repeat;
+        background-size: 100% 100%;
+        height: .4rem;
+        width: 60%;
+        text-align: center;
+        font-size: 15px;
+        line-height: .4rem;
+        font-weight: bold;
+        color: #ffffff;
+        margin-left: 20%;
+    }
+    .BindInfo .ValidCode
+    {
+        background: url(/Mobile/WeChat/_image/btn_icon.png) no-repeat;
+        background-size: 100% 100%;
+        height: 0.35rem;
+        width: 30%;
+        float: right;
+        margin-right: 13%;
+        text-align: center;
+        font-size: 12px;
+        line-height: .3rem;
+        font-weight: bold;
+        color: #ffffff;
+    }
+    
+    
+    /*图片*/
+    .Imgs
+    {
+        height: 1rem;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        background-color: #ffffff;
+    }
+    
+    .icon
+    {
+        float: left;
+        margin: .08rem .03rem 0 .15rem;
+        width: .45rem;
+        height: .45rem;
+    }
+    .menu_text
+    {
+        color: #4d4d4d;
+        line-height: .70rem;
+    }
+    .menu
+    {
+        display: flex;
+        background-color: #FFFFFF;
+    }
+    .swiper-pagination-bullet
+    {
+        width: 10px;
+        height: 10px;
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        color: #000;
+        opacity: 1;
+        background: rgba(0,0,0,0.2);
+    }
+    .swiper-pagination-bullet-active
+    {
+        color: #fff;
+        background: #007aff;
+    }
+    
+    /*推荐商家*/
+    .recommendMerchant_topWrapper
+    {
+        width: 100%;
+    }
+    .recommendMerchant_title
+    {
+        width: 100%;
+        height: .3rem;
+        line-height: .3rem;
+        text-align: center;
+    }
+    .recommendMerchant_title span
+    {
+        font-weight: bold;
+    }
+    .cut_off_rule
+    {
+        display: inline-block;
+        width: .3rem;
+        height: .05rem;
+        border-top: 1px solid gray;
+        margin: 0 .01rem;
+    }
+    .dot
+    {
+        display: inline-block;
+        width: .02rem;
+        height: .05rem;
+        border-top: 1px solid gray;
+    }
+    .recommendMerchant_shadow
+    {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,.3);
+        display: none;
+    }
+    .recommendMerchant_sort_item
+    {
+        width: 100%;
+        height: .3rem;
+        padding: 0 .1rem;
+        font-size: 12px;
+        border-bottom: 1px solid #D1D1D1;
+        position: relative;
+        background: white;
+        z-index:1;
+    }
+    .recommendMerchant_sort_item li
+    {
+        width: 25%;
+        line-height: .3rem;
+        float: left;
+        text-align: center;
+    }
+    .sort_mode
+    {
+        width: 100%;
+        background: white;
+        position: absolute;
+        top: .3rem;
+        left: 0;
+        z-index: 1;
+    }
+    .sort_mode ul
+    {
+        position: relative;
+        background: white;
+        padding: .1rem;
+    }
+    .sort_mode li
+    {
+        height: .34rem;
+        line-height: .34rem;
+        float: none;
+        width: 100%;
+        text-align: left;
+    }
+    .sort_mode li span
+    {
+        display: inline-block;
+    }
+    .sort_mode li span:nth-child(2)
+    {
+        float: right;
+    }
+    .sort_mode li span:nth-child(2) i
+    {
+        color: #1B8CE0;
+    }
+    /*遮罩打开后禁用滚动*/
+    .ovfHiden
+    {
+        overflow: hidden;
+        height: 100%;
+    }
+    
+    /*推荐商家列表*/
+    .recommendMerchant_content
+    {
+        background: white;
+    }
+    .recommendMerchant_content_list li
+    {
+        width: 100%;
+        height: 2.16rem;
+        padding: .15rem .1rem;
+        border-bottom: 1px solid #D1D1D1;
+        font-size: 12px;
+    }
+    .recommendMerchant_content_list li > div
+    {
+        float: left;
+    }
+    .recommendMerchant_content_list_left
+    {
+        width: 20%;
+        height: 100%;
+    }
+    .recommendMerchant_content_list_left_topImg
+    {
+        height: .6rem;
+    }
+    .recommendMerchant_content_list_left_topImg > img
+    {
+        height: 100%;
+    }
+    .recommendMerchant_content_list_right
+    {
+        padding-left: .1rem;
+        width: 80%;
+    }
+    .recommendMerchant_content_list_right > div
+    {
+        padding-bottom: .05rem;
+        height: .25rem;
+    }
+    .recommendMerchant_content_list_right_brandName
+    {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .brandNameFont
+    {
+        width: 90%;
+        display: inline-block;
+    }
+    .brandIcon
+    {
+        width: 10%;
+        display: inline-block;
+    }
+    .starLevelIcon
+    {
+        font-size: 0;
+        color: gold;
+    }
+    .starLevelIcon i
+    {
+        font-size: 12px;
+    }
+    .starLevelNum
+    {
+        margin: 0 .05rem;
+    }
+    .recommendMerchant_content_list_right_dispatchingInfo
+    {
+        clear: both;
+    }
+    .recommendMerchant_content_list_right_dispatchingInfo span:first-child
+    {
+        float: left;
+    }
+    .recommendMerchant_content_list_right_dispatchingInfo span:nth-child(2)
+    {
+        float: right;
+    }
+    /*清除浮动*/
+    .clearfix:after
+    {
+        content: "."; /*加一段内容*/
+        display: block; /*让生成的元素以块级元素显示，占满剩余空间*/
+        height: 0; /*避免生成的内容破坏原有布局高度*/
+        clear: both; /*清除浮动*/
+        visibility: hidden; /*让生成的内容不可见*/
+    }
+    .clearfix
+    {
+        zoom: 1; /*为IE6，7的兼容性设置*/
+    }
+    .fullReduction_bargainPrice
+    {
+        display: inline-block;
+        margin-right: .05rem;
+        border: 1px solid gold;
+        text-align: center;
+        vertical-align: middle;
+        color: gold;
+    }
+    .recommendMerchant_content_list_right_bargainPrice
+    {
+        border-bottom: 1px solid #D1D1D1;
+    }
+    .recommendMerchant_content_list_right_nearby
+    {
+        padding: 0;
+        margin-top: .15rem;
+    }
+    .recommendMerchant_content_list_right_nearby span
+    {
+        margin-left: .05rem;
+    }
+    
+    
+    
+    
+    
+    /*会员中心样式*/
+    .top
+    {
+        background-color: #0098FF;
+        width: 100%;
+        height: 1.45rem;
+        padding: .15rem .15rem 0 .15rem;
+    }
+    .top .information
+    {
+        background-image: url(/Mobile/WeChat/_image/bg.png);
+        width: 100%;
+        height: 1rem;
+        border-top-left-radius: .06rem;
+        border-top-right-radius: .06rem;
+    }
+    .top img
+    {
+        width: .66rem;
+        height: .66rem;
+        border-radius: 50%;
+        float: left;
+        margin: .20rem .15rem 0 0;
+    }
+    .top .top_L
+    {
+        float: left;
+        margin-top: .35rem;
+        width: 60%;
+    }
+    .top_B
+    {
+        background-color: #FFFFFF;
+        width: 100%;
+        height: .70rem;
+        margin-bottom: .16rem;
+    }
+    .top_B1
+    {
+        width: 33.3%;
+        height: .50rem;
+        margin-top: .10rem;
+        text-align: center;
+    }
+    .top_B1 span
+    {
+        font-size: 18px;
+        color: orange;
+    }
+    .integral
+    {
+        border-right: .01rem solid #EBEBEB;
+        float: left;
+    }
+    .top_B .top_Name
+    {
+        color: #1e1e1e;
+        font-size: 13px;
+        margin: .05rem 0 .05rem 0;
+    }
+    .content ul li
+    {
+        padding: 0 .1rem;
+        border-bottom: .01rem solid #EBEBEB;
+        line-height: 40px;
+    }
+    .content ul li:first-child
+    {
+        border-top: 1px solid #ebebeb;
+    }
+    .content ul li img
+    {
+        width: 27px;
+        height: 21px;
+        margin-right: 10px;
+        margin-top: -3px;
+    }
+    .content ul li a
+    {
+        display: inline-block;
+        color: #1e1e1e;
+    }
+    
+    /*二维码*/
+    .hide-body1
+    {
+        top: 1rem;
+        left: 8%;
+        width: 84%;
+        height: 3.4rem;
+    }
+    .hide-body1 .title1
+    {
+        display: inline-block;
+        float: left;
+        width: 20%;
+    }
+    .hide-body .MobilePhoneQRCode
+    {
+        height: 50%;
+        margin-left: 10%;
+    }
+    .hide-body1 .text
+    {
+        line-height: .30rem;
+        padding: 0;
+        outline: none;
+        text-indent: .06rem;
+    }
+    .hide-body1 .button
+    {
+        background-color: #01BDFD;
+        color: white;
+        border-radius: .08rem;
+        font-size: 15px;
+        margin-left: 5%;
+        width: 90%;
+        margin-top: .30rem;
+    }
+</style>
