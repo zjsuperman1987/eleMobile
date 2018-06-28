@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8">
+    <!-- iscroll.css -->
+    <link rel="stylesheet" type="text/css" href="pullToRefresh.css">
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <!-- swiper.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
+    <!-- fontawesome.css -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <!-- swiper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+    <!-- iscroll -->
+    <script type="text/javascript" src="iscroll.js"></script>
+    <script type="text/javascript" src="pullToRefresh.js"></script>
+    <!-- hammer.js -->
+    <script type="text/javascript" src="hammer.js"></script>
+    <!-- jquery.js -->
+    <script type="text/javascript" src="jquery1.12.4.js"></script>
+    <!-- 地图 -->
+    <!--  <script type="text/javascript" src="https://apis.map.qq.com/tools/geolocation/min?key=FJOBZ-7SZWO-7H7WW-SCBBR-AHBD3-NCBFN&referer=myapp"></script> -->
+    <!-- 网易适配方案 -->
+    <script type="text/javascript">
+    document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + 'px';
+    </script>
+    <style type="text/css">
+    @media screen and (max-width:321px) {
+        .m-navlist {
+            font-size: 15px
+        }
+    }
+    @media screen and (min-width:321px) and (max-width:400px) {
+        .m-navlist {
+            font-size: 16px
+        }
+    }
+    @media screen and (min-width:400px) {
+        .m-navlist {
+            font-size: 18px
+        }
+    }
+
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+        font-size: 12px;
+    }
+    /*内容*/
+
+    .contentBar {
+        width: 100%;
+        position: absolute;
+        bottom: .85rem;
+        left: 0;
+        top: 0;
+        overflow-x: hidden;
+        /*background: gold;*/
+    }
+    /*顶部*/
+
+    .topBar {
+        width: 100%;
+        height: .75rem;
+        line-height: .75rem;
+        background: #0089FF;
+        padding: 0 .1rem
+    }
+    .topBar i,
+    .topBar span {
+        margin-left: .1rem
+    }
+    .searchBarWrapper {
+        display: table;
+        width: 100%;
+        height: .87rem;
+        background: #0089FF;
+        padding: .1rem;
+    }
+    .searchBarWrapper div {
+        display: table-cell;
+        width: 100%;
+        height: 100%;
+        background: white;
+        text-align: center;
+        vertical-align: middle;
+        z-index: 1;
+    }
+    /*顶部精选*/
+
+    .topChoiceness {
+        height: .45rem;
+        line-height: .45rem;
+        width: 100%;
+        background: #0089FF;
+        font-size: 0;
+        padding: 0 .1rem
+    }
+    .topChoiceness span {
+        display: inline-block;
+        height: 100%;
+        width: 14.2857%;
+        text-align: center;
+        font-size: 12px;
+        color: white;
+    }
+    /*轮播精选*/
+
+    .swiper-container_choiceness {
+        width: 100%;
+        height: 2rem;
+        background: white;
+        position: relative;
+        color: gray;
+    }
+    .swiper-container_choiceness .swiper-slide {
+        padding: .1rem .1rem .2rem;
+    }
+    .swiperItem {
+        width: 20%;
+        height: 50%;
+        float: left;
+        padding: .05rem;
+    }
+    .swiperItem_top {
+        height: 65%;
+        width: 100%;
+        text-align: center;
+    }
+    .swiperItem_top img {
+        width: .34rem;
+        height: .34rem;
+        margin: 0 auto;
+        margin-top: .1rem;
+    }
+    .swiperItem_bottom {
+        height: 35%;
+        width: 100%;
+        text-align: center;
+    }
+    .swiper-pagination span {
+        border-radius: 0;
+        width: .08rem;
+        height: .01rem;
+        margin: 0 .02rem;
+    }
+    /*轮播自动*/
+
+    .swiper-container_carousel {
+        position: relative;
+        width: 100%;
+        height: 1.5rem;
+    }
+    .swiper-container_carousel .swiper-slide {
+        padding: .1rem;
+    }
+    .swiper-container_carousel img {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-pagination-customer {
+        border-radius: 0;
+        width: .15rem;
+        height: .01rem;
+        margin: 0 2px;
+        display: inline-block;
+        background: #000;
+        opacity: .2
+    }
+    /*底部*/
+
+    .bottomBar {
+        height: .85rem;
+        width: 100%;
+        padding-top: .07rem;
+        background: #fff;
+        position: fixed;
+        bottom: 0;
+    }
+    .bottomItem {
+        width: 25%;
+        height: 100%;
+        float: left;
+    }
+    .bottomItem_top {
+        width: 100%;
+        height: .35rem;
+        line-height: .30rem;
+        text-align: center;
+        color: gray;
+        font-size: .24rem;
+    }
+    .bottomItem_bottom {
+        display: inline-block;
+        width: 100%;
+        height: .30rem;
+        text-align: center;
+        vertical-align: top;
+        font-size: .12rem;
+    }
+    </style>
+
+    <body>
+        <div class="wrapper">
+            <div class="contentBar">
+                <!-- 顶部栏 -->
+                <div class="topBar">
+                    <i class="fas fa-map-marker-alt" style='color:white;'></i>
+                    <span style="font-size: 16px; color: white;">亚太商谷4幢</span>
+                    <i class="fas fa-caret-down" style='color:white;'></i>
+                </div>
+                <!-- 搜索栏 -->
+                <div class="searchBarWrapper">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="height: 16px; margin-top: -3px; vertical-align: middle; ">
+                            <path fill-opacity=".38" d="M14.778 13.732a.739.739 0 1 1-1.056 1.036l-2.515-2.565a.864.864 0 0 1-.01-1.206 4.894 4.894 0 0 0 1.357-3.651c-.126-2.492-2.156-4.52-4.648-4.647a4.911 4.911 0 0 0-5.16 5.163c.126 2.475 2.13 4.496 4.605 4.642.451.026.896-.008 1.326-.1a.739.739 0 0 1 .308 1.446c-.56.12-1.137.164-1.72.13-3.227-.19-5.83-2.815-5.995-6.042a6.39 6.39 0 0 1 6.71-6.715c3.25.165 5.884 2.8 6.05 6.048a6.37 6.37 0 0 1-1.374 4.3l2.12 2.161z"></path>
+                        </svg>
+                        <span>所搜商家，商家名称</span>
+                    </div>
+                </div>
+                <div class="topChoiceness">
+                    <span>烧烤</span>
+                    <span>花甲</span>
+                    <span>奶茶</span>
+                    <span>麦当劳</span>
+                    <span>米线</span>
+                    <span>小龙虾</span>
+                    <span>黄焖鸡</span>
+                </div>
+                <!-- swiper 轮播 手动 -->
+                <!-- Slider main container -->
+                <div class="swiper-container_choiceness">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <div class="swiperItem">
+                                <div class="swiperItem_top">
+                                    <img src="images/1.png">
+                                </div>
+                                <div class="swiperItem_bottom">美食</div>
+                            </div>
+                            <div class="swiperItem">
+                                <div class="swiperItem_top">
+                                    <img src="images/2.png">
+                                </div>
+                                <div class="swiperItem_bottom">商超便利</div>
+                            </div>
+                            <div class="swiperItem">
+                                <div class="swiperItem_top">
+                                    <img src="images/3.png">
+                                </div>
+                                <div class="swiperItem_bottom">夜宵</div>
+                            </div>
+                            <div class="swiperItem">
+                                <div class="swiperItem_top">
+                                    <img src="images/4.png">
+                                </div>
+                                <div class="swiperItem_bottom">果蔬生鲜</div>
+                            </div>
+                            <div class="swiperItem">
+                                <div class="swiperItem_top">
+                                    <img src="images/5.png">
+                                </div>
+                                <div class="swiperItem_bottom">医药健康</div>
+                            </div>
+                            <div class="swiperItem">
+                                <div class="swiperItem_top">
+                                    <img src="images/6.png">
+                                </div>
+                                <div class="swiperItem_bottom">大牌5折</div>
+                            </div>
+                            <div class="swiperItem">
+                                <div class="swiperItem_top">
+                                    <img src="images/7.png">
+                                </div>
+                                <div class="swiperItem_bottom">浪漫鲜花</div>
+                            </div>
+                            <div class="swiperItem">
+                                <div class="swiperItem_top">
+                                    <img src="images/8.png">
+                                </div>
+                                <div class="swiperItem_bottom">麻辣烫</div>
+                            </div>
+                            <div class="swiperItem">
+                                <div class="swiperItem_top">
+                                    <img src="images/9.png">
+                                </div>
+                                <div class="swiperItem_bottom">地方菜系</div>
+                            </div>
+                            <div class="swiperItem">
+                                <div class="swiperItem_top">
+                                    <img src="images/10.png">
+                                </div>
+                                <div class="swiperItem_bottom">披萨意面</div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">Slide 2</div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination" style="bottom: 0;"></div>
+                </div>
+                <!-- swiper 轮播 自动 -->
+                <div class="swiper-container_carousel">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <img src="images/carouse1.jpg">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/carouse2.jpg">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/carouse3.jpg">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/carouse4.jpg">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/carouse5.jpg">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/carouse6.jpg">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/carouse7.jpg">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/carouse8.jpg">
+                        </div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 底部 -->
+        <div class="bottomBar">
+            <div class='bottomItem'>
+                <div class="bottomItem_top">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="bottomItem_bottom">
+                    <span>商家</span>
+                </div>
+            </div>
+            <div class='bottomItem'>
+                <div class="bottomItem_top">
+                    <i class="far fa-compass"></i>
+                </div>
+                <div class="bottomItem_bottom">
+                    <span>附近</span>
+                </div>
+            </div>
+            <div class='bottomItem'>
+                <div class="bottomItem_top">
+                    <i class="fas fa-sticky-note">
+                            
+                        </i>
+                </div>
+                <div class="bottomItem_bottom">
+                    <span>订单</span>
+                </div>
+            </div>
+            <div class='bottomItem'>
+                <div class="bottomItem_top">
+                    <i class="far fa-user"></i>
+                </div>
+                <div class="bottomItem_bottom">
+                    <span>我的</span>
+                </div>
+            </div>
+        </div>
+        </div>
+        <script type="text/javascript">
+        window.onload = function() {
+            initControl.init();
+        }
+
+        var initControl = (function() {
+            return {
+                init: function() {
+                    // 轮播 精选 
+                    var mySwiper = new Swiper('.swiper-container_choiceness', {
+                        // Optional parameters
+                        direction: 'horizontal',
+                        loop: false,
+                        // If we need pagination
+                        pagination: {
+                            el: '.swiper-pagination',
+                        },
+                    })
+
+                    // 轮播 自动
+                    var mySwiper1 = new Swiper('.swiper-container_carousel', {
+                        autoplay: {
+                            delay: 3000,
+                            disableOnInteraction: false,
+                        },
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true,
+                            bulletClass: 'swiper-pagination-customer',
+                        },
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                    })
+                    $('.swiper-pagination-bullet').css({ margin: '0 2px' })
+                }
+            }
+        })()
+        </script>
+    </body>
+
+</html>
