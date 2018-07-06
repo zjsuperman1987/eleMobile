@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;">
+<head>
+    <!-- meta使用viewport以确保页面可自由缩放 -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- 引入 底层css 样式 -->
+    <link type="text/css" rel="stylesheet" href="/Mobile/WeChat/_css/common.css" />
+    <link type="text/css" rel="stylesheet" href="/Mobile/WeChat/_css/CommonPartially.css" />
+    <link type="text/css" rel="stylesheet" href="_control/swiper/swiper-4.1.0.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link type="text/css" rel="Stylesheet" href="/Mobile/WeChat/_control/scroll/reset.css" />
+    <link type="text/css" rel="Stylesheet" href="/Mobile/WeChat/_control/scroll/pullToRefresh.css" />
+    <!-- 引入 底层Js 库-->
+    <script type="text/javascript" language="javascript" src="/Mobile/WeChat/_js/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/Mobile/WeChat/_js/common.js"></script>
+    <script type="text/javascript" language="javascript" src="/Mobile/WeChat/_control/scroll/pullToRefresh.js"></script>
+    <script type="text/javascript" language="javascript" src="/Mobile/WeChat/_control/scroll/iscroll.js"></script>
+    <script type="text/javascript" language="javascript" src="orderDetail.js"></script>
+    <!-- 引入 layer 库-->
+    <script type="text/javascript" language="javascript" src="/Mobile/WeChat/_control/layer_mobile/layer.js"></script>
+    <!-- 引入Swiper轮播插件-->
+    <script type="text/javascript" language="javascript" src="_control/swiper/swiper-4.1.0.min.js"></script>
+    <title>会员中心</title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 12px;
+        }
+        body
+        {
+            background: #eee;
+        }
+        .topBar
+        {
+            width: 100%;
+            height: .5rem;
+            padding: .2rem .1rem .1rem .1rem;
+            background: #0089FF;
+            color: White;
+        }
+        .topBarLeft
+        {
+        }
+        .topBarRight
+        {
+            height: 100%;
+        }
+        .topBarRight i, .topBarRight span
+        {
+            margin-right: .1rem;
+        }
+        .orderStatusFont
+        {
+            width: 100%;
+            padding: 0 .1rem .05rem .1rem;
+            background: #0089FF;
+            font-weight: bold;
+            color: White;
+        }
+        .acknowledgments
+        {
+            width: 100%;
+            background: #0089FF;
+            overflow: hidden;
+            box-shadow: 0px 6px 12px 0px rgba(0, 137, 255, 1);
+        }
+        .acknowledgments div
+        {
+            padding: 0 .1rem;
+        }
+        .acknowledgments span
+        {
+            display: inline-block;
+            width: 100%;
+            padding: .1rem .1rem;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            color: black;
+            background: white;
+        }
+        .merchantWrapper
+        {
+            padding: .1rem;
+            margin-top: .2rem;
+        }
+        .merchant
+        {
+            background: white;
+            width: 100%;
+            overflow: hidden;
+        }
+        .merchantName
+        {
+            padding: .1rem;
+            font-size: 14px;
+            font-weight: bold;
+            color: Black;
+            border-bottom: 1px solid #eee;
+        }
+        .merchantItem
+        {
+            width: 100%;
+            padding: .1rem;
+            font-size: 0;
+            letter-spacing: -3px;
+            display: table;
+        }
+        .merchantItem img
+        {
+            width: 30px;
+            height: 30px;
+        }
+        .merchantItem span
+        {
+            display: table-cell;
+            vertical-align: middle;
+            width: 15%;
+            letter-spacing: 0;
+        }
+        .merchantItem .merchatItem_detail
+        {
+            width: 40%;
+        }
+        .shippingFee
+        {
+            padding: .1rem;
+        }
+        .shippingFee i
+        {
+            font-style: normal;
+            border: 1px solid gray;
+            background: lightgray;
+            color: lightblack;
+            margin-right: .1rem;
+        }
+        .contactMerchant
+        {
+            display: table;
+            width: 100%;
+            padding: .1rem;
+            border-bottom: 1px solid #eee;
+        }
+        .contactMerchant span
+        {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .contactMerchant span:first-child
+        {
+            color: #0089FF;
+        }
+        .contactMerchant i
+        {
+            margin: 0 .1rem;
+        }
+        
+        /*配送信息*/
+        .shippingInfoWrapper
+        {
+            margin-top: .1rem;
+            padding: .1rem;
+            overflow: hidden;
+        }
+        .shippInfo
+        {
+            background: white;
+        }
+        .shippingTitle
+        {
+            padding: .1rem;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+            font-weight: bold;
+            background: white;
+        }
+        .shippingReach
+        {
+            padding: .1rem;
+            letter-spacing: -3px;
+            font-size: 0;
+            margin-left: 1rem;
+        }
+        .shippingReach span
+        {
+            display: inline-block;
+            font-size: 12px;
+            letter-spacing: normal;
+        }
+        .shippingReach span:first-child
+        {
+            width: 1rem;
+            margin-left: -1rem;
+            font-size: 14px;
+        }
+        .shippingReach span:nth-child(2)
+        {
+            width: 100%;
+            text-align: right;
+            color: Gray;
+        }
+        .shippingAddress
+        {
+            padding: .1rem;
+            letter-spacing: -3px;
+            font-size: 0;
+            margin-left: 1rem;
+        }
+        .shippingAddress span
+        {
+            display: inline-block;
+            font-size: 12px;
+            letter-spacing: normal;
+            vertical-align: top;
+        }
+        .shippingAddress span:first-child
+        {
+            width: 1rem;
+            margin-left: -1rem;
+            font-size: 14px;
+        }
+        .shippingAddress span:nth-child(2)
+        {
+            width: 100%;
+            text-align: right;
+            color: Gray;
+        }
+        .shippingWay
+        {
+            padding: .1rem;
+            letter-spacing: -3px;
+            font-size: 0;
+            margin-left: 1rem;
+        }
+        .shippingWay span
+        {
+            display: inline-block;
+            font-size: 12px;
+            letter-spacing: normal;
+            vertical-align: top;
+        }
+        .shippingWay span:first-child
+        {
+            width: 1rem;
+            margin-left: -1rem;
+            font-size: 14px;
+        }
+        .shippingWay span:nth-child(2)
+        {
+            width: 100%;
+            text-align: right;
+            color: Gray;
+        }
+        /*改变最小字体样式*/
+        .small_font
+        {
+            font-size: 12px;
+            -webkit-transform-origin-x: 0;
+            -webkit-transform: scale(0.90);
+        }
+        .smallsize_font
+        {
+            font-size: 10.8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="orderDetailWrapper">
+        <div class="topBar">
+            <div class="topBarLeft fl">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="topBarRight fr">
+                <i class="fas fa-headphones"></i><span>...</span>
+            </div>
+        </div>
+        <div class="orderStatusFont">
+            <span style="font-size: 20px">订单已送达</span></div>
+        <div class="contentBar">
+            <div class="acknowledgments">
+                <div>
+                    <span>感谢您对光之际的信任，期待你的再次光临</span>
+                </div>
+            </div>
+            <!--商家信息-->
+            <div class="merchantWrapper">
+                <div class="merchant">
+                    <div class="merchantName">
+                        <span>华莱士(玖熙国际店) ></span>
+                    </div>
+                    <div class="merchantItem">
+                        <span>
+                            <img src="../../_image/Login.jpg" width="30px" height="30px" /></span> <span class="merchatItem_detail">
+                                五折单人豪华套餐：汉堡+辣翅+4串...</span> <span>x1</span> <span><a>￥26</a></span> <span style="text-align: right">
+                                    ￥13</span>
+                    </div>
+                    <div class="merchantItem">
+                        <span>
+                            <img src="../../_image/Login.jpg" width="30px" height="30px" /></span> <span class="merchatItem_detail">
+                                五折单人豪华套餐：汉堡+辣翅+4串...</span> <span>x1</span> <span><a>￥26</a></span> <span style="text-align: right">
+                                    ￥13</span>
+                    </div>
+                    <div class="shippingFee">
+                        <i class="small_font smallsize_font">配送费</i> <span>蜂鸟快送</span> <span class="fr">￥25</span>
+                    </div>
+                    <div class="contactMerchant">
+                        <span><i class="fas fa-phone-volume"></i>联系商家</span> <span class="fr">实付 <b style="font-size: 14px">
+                            ￥32.5</b></span>
+                    </div>
+                </div>
+            </div>
+            <!--配送信息-->
+            <div class="shippingInfoWrapper">
+                <div class="shippInfo">
+                    <div class="shippingTitle">
+                        <span>配送信息</span>
+                    </div>
+                    <div class="shippingReach">
+                        <span>送达时间</span> <span>尽快送达[20:31]</span>
+                    </div>
+                    <div class="shippingAddress">
+                        <span>收货地址</span> <span>亚太商谷4撞亚太路1好附131号4号楼3楼15号李(先生)</span>
+                    </div>
+                    <div class="shippingWay">
+                        <span>配送方式</span> <span>蜂鸟快送</span>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+</body>
+</html>
