@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;">
+<head>
+    <!-- meta使用viewport以确保页面可自由缩放 -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- 引入 底层css 样式 -->
+    <link type="text/css" rel="stylesheet" href="/Mobile/WeChat/_css/common.css" />
+    <link type="text/css" rel="stylesheet" href="/Mobile/WeChat/_css/CommonPartially.css" />
+    <!--字体样式-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <!--轮播swiper.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.min.css">
+    <link href="/_control/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/_control/layui/css/layui.css" rel="stylesheet" type="text/css" />
+    <!--引入pullToRefresh.css-->
+    <link rel="stylesheet" type="text/css" href="/Mobile/WeChat/_control/scroll/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/Mobile/WeChat/_control/scroll/pullToRefresh.css" />
+    <!-- 引入 底层Js 库-->
+    <script type="text/javascript" language="javascript" src="/Mobile/WeChat/_js/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/Mobile/WeChat/_js/common.js"></script>
+    <!-- 引入 layer 库-->
+    <script type="text/javascript" language="javascript" src="/Mobile/WeChat/_control/layer_mobile/layer.js"></script>
+    <!-- 引入Swiper轮播插件-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.min.js"></script>
+    <!--引入IScroll.js-->
+    <script src="/Mobile/WeChat/_control/scroll/iscroll-probe.js"></script>
+    <!--<script src="/Mobile/WeChat/_control/scroll/iscroll.js"></script>-->
+    <script type="text/javascript" language="javascript" src="/Mobile/WeChat/_control/scroll/pullToRefresh.js"></script>
+    <!--腾讯 定位-->
+    <script type="text/javascript" src='https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js '></script>
+    <!--引入自身js-->
+    <script type="text/javascript" language="javascript" src="commodityDetail.js"></script>
+    <title>会员中心</title>
+    <style>
+        .headBar
+        {
+            width: 100%;
+            height: 1rem;
+            background: gold;
+            background: url(/Mobile/WeChat/_image/commodity.png) no-repeat;
+            background-size: 100% 100%;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader ( enabled=bEnabled , sizingMethod=sSize , src=/Mobile/WeChat/_image/commodity.png );
+        }
+        .searchBar
+        {
+            height: .8rem;
+            width: 100%;
+            padding: .1rem;
+        }
+        .searchBarLeft
+        {
+            width: .3rem;
+            height: .3rem;
+            float: left;
+            line-height: .3rem;
+            text-align: center;
+            color: White;
+        }
+        .searchBarRight
+        {
+            width: .3rem;
+            height: .3rem;
+            float: right;
+            line-height: .3rem;
+            text-align: center;
+            color: White;
+        }
+        .searchBarRight span
+        {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border: 1px solid white;
+            border-radius: 10px;
+        }
+        .searchBarMiddle
+        {
+            width: 100%;
+            height: .3rem;
+            padding: 0 .5rem;
+            display: none;
+        }
+        .searchContent
+        {
+            width: 100%;
+            height: .3rem;
+            line-height: .3rem;
+            text-align: center;
+            background: lightgray;
+        }
+        .searchContent svg
+        {
+            width: 16px;
+            height: 16px;
+            margin-top: -2px;
+            vertical-align: middle;
+        }
+        .brandIcon
+        {
+            position: absolute;
+            left: 50%;
+            margin-left: -.25rem;
+            width: .5rem;
+            height: .5rem;
+            background: url(/Mobile/WeChat/_image/activity.png) no-repeat;
+            background-size: 100% 100%;
+            box-shadow: 1px 1px 1px 1px black;
+            z-index: 1;
+        }
+        .collect
+        {
+            position: absolute;
+            right: 0;
+            width: .3rem;
+            height: .3rem;
+            border-radius: .15rem;
+            background: white;
+            margin-right: .1rem;
+            color: red;
+            font-size: 20px;
+            text-align: center;
+            line-height: .3rem;
+            top: .85rem;
+            box-shadow: 1px 1px 1px 1px black;
+        }
+        /*优惠*/
+        .discounts
+        {
+            position: absolute;
+            top: 1.35rem;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+        .brandName
+        {
+            width: 100%;
+            text-align: center;
+        }
+        .brandName span
+        {
+            font-size: 18px;
+            color: Black;
+            font-weight: bold;
+        }
+        .brandEvaluate
+        {
+            width: 100%;
+            text-align: center;
+            margin-top: .1rem;
+        }
+        .brandEvaluate span
+        {
+            display: inline-block;
+            font-size: 12px;
+            margin-right: .05rem;
+        }
+        .get
+        {
+            text-align: center;
+            font-size: 0;
+            letter-spacing: -3px;
+            margin-top: .1rem;
+        }
+        .get span
+        {
+            display: inline-block;
+            background: gold;
+            letter-spacing: normal;
+            font-size: 12px;
+            padding: .05rem;
+        }
+        .get span:nth-child(2)
+        {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        .scroll_one
+        {
+            position: relative;
+            overflow-y: scroll;
+            font-size: 12px;
+            padding: .1rem;
+        }
+        .scroll_one p
+        {
+            height: 20px;
+            width: 100%;
+        }
+        .fullReduction
+        {
+            width: 90%;
+            margin-left: 5%;
+            text-align: center;
+            font-size: 0;
+            letter-spacing: -3px;
+            margin-top: .1rem;
+        }
+        .fullReduction i
+        {
+            margin-left: .1rem;
+            color: gray;
+            display: inline-block;
+        }
+        .fullReduction span
+        {
+            display: inline-block;
+            margin: 0 .05rem;
+            font-size: 12px;
+            letter-spacing: normal;
+        }
+        .fullReduction b
+        {
+            float: right;
+            font-size: 12px;
+            font-weight: normal;
+            margin: 0 .1rem;
+            letter-spacing: normal;
+        }
+        .announcement
+        {
+            text-align: center;
+            font-size: 12px;
+        }
+        .announcement_discounts, .service, .announcement_bottom
+        {
+            margin: .2rem 0;
+        }
+        .discounts h2
+        {
+            margin-bottom: .1rem;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .discounts p
+        {
+            margin: .1rem 0;
+        }
+        .scroll_two
+        {
+            position: absolute;
+            top: 1.51rem;
+            bottom: 0;
+            left: 0;
+            background: pink;
+            width: 100%;
+        }
+        .scroll_two_bottom
+        {
+            height: .45rem;
+            background: rgba(61,61,63,.9);
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding-left: 21.066667vw;
+        }
+        .shoppingCar
+        {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background: pink;
+            left: 14px;
+            border-radius: 25px;
+            top: -20px;
+            background: rgba(61,61,63,.9);
+        }
+        .shoppingCar i
+        {
+            color: white;
+            font-size: 18px;
+        }
+        .shoppingCarLeft
+        {
+            float: left;
+            color: gray;
+            font-size: 12px;
+            height: 100%;
+        }
+        .shoppingCarLeft div
+        {
+            height: 50%;
+            vertical-align: middle;
+            display: table;
+        }
+        .shoppingCarLeft div span
+        {
+            height: 100%;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .shoppingCarRight
+        {
+            float: right;
+            height: 100%;
+            line-height: .45rem;
+            color: Gray;
+            padding: 0 .1rem;
+            background: rgba(238, 238, 238, .1);
+        }
+        .fullReductionTip
+        {
+            position: absolute;
+            bottom: .45rem;
+            background: yellow;
+            height: .2rem;
+            line-height: .2rem;
+            width: 100%;
+            padding-left: 21.066667vw;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="commodityDetailWrapper">
+        <!--头部-->
+        <div class="headBar">
+            <div class="searchBar">
+                <div class="searchBarLeft">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="searchBarRight">
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+                <div class="searchBarRight">
+                    <span>拼</span>
+                </div>
+                <div class="searchBarRight">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16"><path fill-opacity=".38" d="M14.778 13.732a.739.739 0 1 1-1.056 1.036l-2.515-2.565a.864.864 0 0 1-.01-1.206 4.894 4.894 0 0 0 1.357-3.651c-.126-2.492-2.156-4.52-4.648-4.647a4.911 4.911 0 0 0-5.16 5.163c.126 2.475 2.13 4.496 4.605 4.642.451.026.896-.008 1.326-.1a.739.739 0 0 1 .308 1.446c-.56.12-1.137.164-1.72.13-3.227-.19-5.83-2.815-5.995-6.042a6.39 6.39 0 0 1 6.71-6.715c3.25.165 5.884 2.8 6.05 6.048a6.37 6.37 0 0 1-1.374 4.3l2.12 2.161z"></path></svg>
+                </div>
+                <div class="searchBarMiddle">
+                    <div class="searchContent">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16"><path fill-opacity=".38" d="M14.778 13.732a.739.739 0 1 1-1.056 1.036l-2.515-2.565a.864.864 0 0 1-.01-1.206 4.894 4.894 0 0 0 1.357-3.651c-.126-2.492-2.156-4.52-4.648-4.647a4.911 4.911 0 0 0-5.16 5.163c.126 2.475 2.13 4.496 4.605 4.642.451.026.896-.008 1.326-.1a.739.739 0 0 1 .308 1.446c-.56.12-1.137.164-1.72.13-3.227-.19-5.83-2.815-5.995-6.042a6.39 6.39 0 0 1 6.71-6.715c3.25.165 5.884 2.8 6.05 6.048a6.37 6.37 0 0 1-1.374 4.3l2.12 2.161z"></path></svg>
+                        <span style="color: gray">想买什么一搜</span>
+                    </div>
+                </div>
+            </div>
+            <div class="brandIcon">
+            </div>
+            <div class="collect">
+                <i class="far fa-heart"></i>
+            </div>
+        </div>
+        <!--优惠-->
+        <div class="discounts">
+            <div class="brandName">
+                <span>德克士(上海城店)</span>
+            </div>
+            <div class="brandEvaluate">
+                <span>评价 <i>4.5</i></span> <span>月售 <i>667</i></span> <span>商家配送约 <i>29</i> 分钟</span>
+            </div>
+            <div class="get">
+                <span>¥<i>8</i></span> <span><i class="fas fa-crown"></i>无门槛</span> <span>领取</span>
+            </div>
+            <!--公告滚动页面-->
+            <div class="scroll_one">
+                <div class="fullReduction" style="display: block">
+                    <i>满减</i> <span>满30减9</span> <span>满50减15</span> <span>满90减27</span> <b>5个优惠<i class="fas fa-angle-down"></i></b>
+                </div>
+                <div class="announcement" style="display: block">
+                    <span>公告：专注三米品牌, 本店所有产品均为...</span>
+                </div>
+                <!--第二张页面-->
+                <div style="display: none">
+                    <div class="announcement_discounts">
+                        <h2>
+                            优惠</h2>
+                        <p class="fullReduction_new">
+                            <i>满减</i> <span>满30减9</span> <span>满50减15</span> <span>满90减27</span>
+                        </p>
+                        <p class="member">
+                            <i>会员</i> <span>超级会员领8元无门槛红包</span>
+                        </p>
+                        <p class="specialPrice">
+                            <i>特价</i><span>特价商品5元起</span>
+                        </p>
+                        <p class="firstOrder">
+                            <i>首单</i><span>新用户下单立减17元(不与其他活动同享)</span>
+                        </p>
+                        <p class="specialPrice">
+                            <i>折扣</i><span>折扣商品零折起</span>
+                        </p>
+                    </div>
+                    <div class="service">
+                        <h2>
+                            服务</h2>
+                        <p class="compensate">
+                            <i>拒单赔</i><span>商家原因导致订单取消，赔付代金卷</span>
+                        </p>
+                    </div>
+                    <div class="announcement_bottom">
+                        <h2>
+                            公告</h2>
+                        <p>
+                            专注三米品牌， 简单有滋味， 本店所有产品均为下单后现做请及时食用。如餐品上有任何质量问题，请及时联系我们在做品论，我们会给大家满意的解决方案流空手道解放洛杉矶流口水家里睡大觉两款手机洛杉矶离开分局深大路口将发送旅客的纪录时刻的解放了看似简单法律上的就分厘卡电视机发来的时间了解了</p>
+                    </div>
+                </div>
+            </div>
+            <!--第二滚动页面-->
+            <div class="scroll_two">
+                <!--底部-->
+                <div class="fullReductionTip">
+                    <span>满30减12元, 满50减20元, 满80减32元</span>
+                </div>
+                <div class="scroll_two_bottom">
+                    <div class="shoppingCar">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="shoppingCarLeft">
+                        <div>
+                            <span>未选购商品</span></div>
+                        <div>
+                            <span>另需配送费3.18元</span></div>
+                    </div>
+                    <div class="shoppingCarRight">
+                        ¥<span>15</span>起送
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
