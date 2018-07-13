@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;">
+<head>
+    <!-- meta使用viewport以确保页面可自由缩放 -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- 引入 底层css 样式 -->
+    <link type="text/css" rel="stylesheet" href="/Mobile/WeChat/_css/common.css" />
+    <link type="text/css" rel="stylesheet" href="/Mobile/WeChat/_css/CommonPartially.css" />
+    <!--字体样式-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <!--轮播swiper.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.min.css">
+    <link href="/_control/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/_control/layui/css/layui.css" rel="stylesheet" type="text/css" />
+    <!--引入pullToRefresh.css-->
+    <link rel="stylesheet" type="text/css" href="/Mobile/WeChat/_control/scroll/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/Mobile/WeChat/_control/scroll/pullToRefresh.css" />
+    <!-- 引入 底层Js 库-->
+    <script type="text/javascript" language="javascript" src="/Mobile/WeChat/_js/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/Mobile/WeChat/_js/common.js"></script>
+    <!-- 引入 layer 库-->
+    <script type="text/javascript" language="javascript" src="/Mobile/WeChat/_control/layer_mobile/layer.js"></script>
+    <!-- 引入Swiper轮播插件-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.min.js"></script>
+    <!--引入IScroll.js-->
+    <script src="/Mobile/WeChat/_control/scroll/iscroll-probe.js"></script>
+    <!--<script src="/Mobile/WeChat/_control/scroll/iscroll.js"></script>-->
+    <script type="text/javascript" language="javascript" src="/Mobile/WeChat/_control/scroll/pullToRefresh.js"></script>
+    <!--腾讯 定位-->
+    <script type="text/javascript" src='https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js '></script>
+    <!--引入自身js-->
+    <script type="text/javascript" language="javascript" src="commodityDetail.js"></script>
+    <title>会员中心</title>
+    <style>
+        body
+        {
+            overflow: hidden;
+        }
+        .headBar
+        {
+            width: 100%;
+            height: 1rem;
+            background: url(/Mobile/WeChat/_image/testImage.jpg) no-repeat;
+            background-size: 100% 100%;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader ( enabled=bEnabled , sizingMethod=sSize , src=/Mobile/WeChat/_image/commodity.png );
+        }
+        .searchBar
+        {
+            height: .6rem;
+            width: 100%;
+            padding: .1rem;
+            padding-bottom: .2rem;
+        }
+        .searchBarLeft
+        {
+            width: .3rem;
+            height: .3rem;
+            float: left;
+            line-height: .3rem;
+            text-align: center;
+            color: White;
+        }
+        .searchBarRight
+        {
+            width: .3rem;
+            height: .3rem;
+            float: right;
+            line-height: .3rem;
+            text-align: center;
+            color: White;
+        }
+        .searchBarRight b
+        {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border: 1px solid white;
+            border-radius: 10px;
+        }
+        .searchBarMiddle
+        {
+            width: 100%;
+            height: .3rem;
+            padding: 0 .5rem;
+            display: none;
+        }
+        .searchContent
+        {
+            width: 100%;
+            height: .3rem;
+            line-height: .3rem;
+            text-align: center;
+            background: lightgray;
+        }
+        .searchContent svg
+        {
+            width: 16px;
+            height: 16px;
+            margin-top: -2px;
+            vertical-align: middle;
+        }
+        .brandIcon
+        {
+            position: absolute;
+            left: 50%;
+            margin-left: -.25rem;
+            width: .6rem;
+            height: .6rem;
+            background: url(/Mobile/WeChat/_image/activity.png) no-repeat;
+            background-size: 100% 100%;
+            box-shadow: 1px 1px 1px 1px black;
+            z-index: 1;
+            top: -0.5rem;
+        }
+        .collect
+        {
+            position: absolute;
+            right: 0;
+            width: .3rem;
+            height: .3rem;
+            border-radius: .15rem;
+            background: white;
+            margin-right: .1rem;
+            color: red;
+            font-size: 20px;
+            text-align: center;
+            line-height: .3rem;
+            top: -0.15rem;
+            box-shadow: 1px 1px 1px 1px black;
+        }
+        /*优惠*/
+        .discounts
+        {
+            position: absolute;
+            top: .6rem;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            overflow-y: scroll;
+        }
+        .scroll_outSide
+        {
+            position: absolute;
+            top: .4rem;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+        }
+        .brandName
+        {
+            width: 100%;
+            text-align: center;
+            padding-top: .15rem;
+        }
+        .brandName span
+        {
+            font-size: 18px;
+            color: Black;
+            font-weight: bold;
+        }
+        .brandEvaluate
+        {
+            width: 100%;
+            text-align: center;
+            padding: .05rem .1rem;
+        }
+        .brandEvaluate span
+        {
+            display: inline-block;
+            font-size: 12px;
+            margin-right: .05rem;
+        }
+        .get
+        {
+            text-align: center;
+            font-size: 0;
+            letter-spacing: -3px;
+            padding: .05rem .1rem;
+        }
+        .get span
+        {
+            display: inline-block;
+            background: gold;
+            letter-spacing: normal;
+            font-size: 12px;
+            padding: .05rem;
+        }
+        .get span:nth-child(2)
+        {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        .scroll_one
+        {
+            position: relative;
+            overflow: hidden;
+        }
+        .fullReduction
+        {
+            width: 100%;
+            text-align: center;
+            font-size: 0;
+            letter-spacing: -3px;
+        }
+        .fullReduction i
+        {
+            background: pinke;
+            color: gray;
+            display: inline-block;
+            letter-spacing: normal;
+            margin-left: .1rem;
+        }
+        
+        .fullReduction b
+        {
+            float: right;
+            font-size: 12px;
+            font-weight: normal;
+            margin: 0 .1rem;
+            letter-spacing: normal;
+        }
+        .fullReduction span
+        {
+            display: inline-block;
+            margin: 0 .05rem;
+            font-size: 12px;
+            letter-spacing: normal;
+        }
+        .announcement
+        {
+            text-align: center;
+            font-size: 12px;
+        }
+        .scroll_one_hide
+        {
+            padding: .1rem;
+            height: 3.34rem;
+            overflow-y: scroll;
+        }
+        .scroll_one_hide div
+        {
+            padding-bottom: .1rem;
+            font-size: 12px;
+            height: .25rem;
+        }
+        .hide_controlFloat
+        {
+            float: left;
+        }
+        .hide_controlFloat:first-child
+        {
+            width: 20%;
+        }
+        .hide_controlFloat:nth-child(2)
+        {
+            width: 80%;
+            margin-top: -3px;
+        }
+        .scroll_one_hide div i
+        {
+            display: inline-block;
+            padding: 0 .05rem;
+            background: pink;
+            float: left;
+        }
+        
+        .scroll_one_hide_bottom
+        {
+            position: fixed;
+            bottom: 0;
+            height: .3rem;
+            line-height: .3rem;
+            text-align: center;
+            width: 100%;
+            background: #eee;
+        }
+        /*主滚动页面 展示商品*/
+        .scroll_two
+        {
+            position: absolute;
+            top: 1.36rem;
+            bottom: 0;
+            left: 0;
+            width: 100%; /*overflow-y: scroll;*/
+            background: pink;
+            transition: all .5s cubic-bezier(0.25,0.1,0.25,1);
+            -moz-transition: all .5s cubic-bezier(0.25,0.1,0.25,1); /* Firefox 4 */
+            -webkit-transition: all .5s cubic-bezier(0.25,0.1,0.25,1); /* Safari 和 Chrome */
+            -o-transition: all .5s cubic-bezier(0.25,0.1,0.25,1); /* Opera */
+        }
+        /*向下滚动*/
+        .slide-up
+        {
+            transform: translateY(100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="commodityDetailWrapper">
+        <!--头部-->
+        <div class="headBar">
+            <div class="searchBar">
+                <span class="searchBarLeft"><i class="fas fa-arrow-left"></i></span><span class="searchBarRight">
+                    <i class="fas fa-ellipsis-v"></i></span><span class="searchBarRight spell"><b>拼</b>
+                    </span>
+                <div class="searchBarMiddle">
+                    <div class="searchContent">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16"><path fill-opacity=".38" d="M14.778 13.732a.739.739 0 1 1-1.056 1.036l-2.515-2.565a.864.864 0 0 1-.01-1.206 4.894 4.894 0 0 0 1.357-3.651c-.126-2.492-2.156-4.52-4.648-4.647a4.911 4.911 0 0 0-5.16 5.163c.126 2.475 2.13 4.496 4.605 4.642.451.026.896-.008 1.326-.1a.739.739 0 0 1 .308 1.446c-.56.12-1.137.164-1.72.13-3.227-.19-5.83-2.815-5.995-6.042a6.39 6.39 0 0 1 6.71-6.715c3.25.165 5.884 2.8 6.05 6.048a6.37 6.37 0 0 1-1.374 4.3l2.12 2.161z"></path></svg>
+                        <span style="color: gray">想买什么一搜</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--优惠-->
+        <div class="contentWrapper">
+            <!--图标-->
+            <div class="brandIcon">
+            </div>
+            <div class="collect">
+                <i class="far fa-heart"></i>
+            </div>
+            <!--商品信息-->
+            <div class="brandInfo">
+            </div>
+            <!--滚动-->
+            <div id="wrapper" class="scrollContent">
+                <ul>
+                    <li>
+                        <div style="height: 150px; width: 100%; background: red;">
+                        </div>
+                        <div style="height: 150px; width: 100%; background: gold;">
+                        </div>
+                        <div style="height: 150px; width: 100%; background: blue;">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<style>
+    .controlPosition
+    {
+        width: 100%;
+        height: .2rem;
+        margin-top: .25rem;
+    }
+    .contentWrapper
+    {
+        position: relative;
+        height: 4.68rem;
+        width: 100%;
+    }
+        /*=================================*/
+        /*
+            position: absolute;
+            top: .8rem;
+            height: 4.88rem;
+        }
+        .contentWrapperPosition 
+        {
+            position: absolute;
+            top: .2rem;
+            height: 4.68rem;
+            width:100%;
+            
+        }
+        */
+       /*=================================*/
+    
+    
+    
+    
+    .brandIcon
+    {
+        position: absolute;
+        left: 50%;
+        top: -0.4rem;
+        margin-left: -.3rem;
+        width: .6rem;
+        height: .6rem;
+        background: red;
+        box-shadow: 1px 1px 1px 1px black;
+    }
+    .collectIcon
+    {
+        position: absolute;
+        right: 0;
+        top: -0.15rem;
+        margin-right: .1rem;
+        width: .3rem;
+        height: .3rem;
+        border-radius: .15rem;
+        background: gold;
+    }
+    .storeInfo
+    {
+        height: 2rem;
+        width: 100%;
+        padding-top: .2rem;
+    }
+    .storeName
+    {
+        padding: .1rem;
+        text-align: center;
+    }
+    .storeName span
+    {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .brandInfo
+    {
+        height: 1.8rem;
+        width: 100%;
+        background: pink;
+    }
+    .scrollContent
+    {
+        position: absolute;
+        top: 1.8rem;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: blue;
+    }
+    /*头部定位*/
+    .searchBarPosition
+    {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+window.onload = function () {
+
+    commodityDetail.init();
+}
+
+
+var commodityDetail = (function () {
+    return {
+        init: function () {
+
+            //            commodityDetail.clickAnnouncement();
+            //            commodityDetail.dragBrand();
+            commodityDetail.initScroll();
+        },
+        //点击公告
+        clickAnnouncement: function () {
+            var slide = document.querySelector('.scroll_two')
+
+            function toggleSlider() {
+                if (slide.classList.contains('slide-up')) {
+                    slide.classList.remove('slide-up');
+                    $('.fullReduction').show()
+                    $('.announcement').show()
+                    $('.scroll_one_hide').hide();
+                    $('.controlScroll').css({ 'overflow-y': 'auto' });
+                } else {
+                    slide.classList.add('slide-up');
+                    $('.fullReduction').hide()
+                    $('.announcement').hide()
+                    $('.scroll_one_hide').show();
+                    $('.controlScroll').css({ 'overflow-y': 'scroll' });
+                    $('.discounts').css({ 'overflow-y': 'scroll' });
+                }
+            }
+            $('.scroll_one').on('click', toggleSlider);
+        },
+        //商品页面拖动
+        dragBrand: function () {
+            //            $('.scroll_two').on('touchmove', function (e) {
+            //                console.log(e.originalEvent.targetTouches[0].pageY);
+            //            });
+
+
+
+        },
+        // 初始滚动
+        initScroll: function () {
+            var mainScroll = new IScroll("wrapper", {
+                probeType: 3,
+                mouseWheel: true
+            });
+
+            var count = 10;
+            var scaleValue = 1;
+            var isSwitch = true;
+            mainScroll.on('scroll', function () {
+
+                //                                console.log(this.y);
+
+                if (this.y <= 0) {
+                    $('.contentWrapper').css('transform', "translateY(" + this.y + "px)");
+                }
+
+                if (this.y <= -20 && count) {
+                    scaleValue = count == 1 ? 0 : "." + (count - 1);
+                    if (isSwitch) {
+                        //头部绝对定位 
+                        $('.searchBar').addClass('searchBarPosition');
+                        //背景图模糊
+
+                        //搜索框展示
+                        $('.searchBarMiddle').show();
+                    }
+
+                    // 商标icon 缩小
+                    $('.brandIcon').css('transform', 'scale(' + scaleValue + ')');
+                    $('.collect').css('transform', 'scale(' + scaleValue + ')');
+                    // icon 透明度 设置
+                    $('.spell').css('opacity', scaleValue);
+
+
+                    count--;
+                    isSwitch = false;
+                }
+                if (this.y > -20 && count < 10) {
+                    scaleValue = count == 9 ? 1 : "." + (count  + 1);
+                    if (!isSwitch) {
+                        //头部绝对定位 
+                        $('.searchBar').removeClass('searchBarPosition');
+                        //背景图模糊
+
+                        //搜索框展示
+                        $('.searchBarMiddle').hide();
+                    }
+
+                    // 商标icon 缩小
+                    $('.brandIcon').css('transform', 'scale(' + scaleValue + ')');
+                    $('.collect').css('transform', 'scale(' + scaleValue + ')');
+                    // icon 透明度 设置
+                    $('.spell').css('opacity', scaleValue);
+
+
+                    isSwitch = true;
+                    count++;
+
+                }
+            })
+        }
+    }
+})();
