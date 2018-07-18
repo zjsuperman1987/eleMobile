@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
+    <script type="text/javascript" src="iscroll-probe.js"></script>
+    <title></title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+        font-size: 12px;
+    }
+    body {
+        overflow: hidden;
+    }
+    /*头部*/
+
+    .head {
+        height: 100px;
+        width: 100%;
+    }
+    .head img {
+        height: 100%;
+        width: 100%;
+    }
+    .navigation {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        height: 30px;
+        width: 100%;
+        padding: 0 10px;
+    }
+    .headLeft {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        float: left;
+    }
+    .headLeft i,
+    .headRight i {
+        color: white;
+    }
+    .headRight {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        float: right;
+    }
+    .headMiddle {
+        width: 100%;
+        height: 30px;
+        padding: 0 50px;
+    }
+    .searchBar {
+        width: 100%;
+        height: 100%;
+        background: white;
+    }
+    /*内容*/
+
+    .container {
+        width: 100%;
+        height: 468px;
+        background: gold;
+    }
+    .container_top {
+        height: 150px;
+        width: 100%;
+        background: pink;
+    }
+    .container_bottom {
+        height: 318px;
+        width: 100%;
+        background: purple;
+    }
+    /*滚动*/
+
+    #wrapper {
+        position: absolute;
+        top: 250px;
+        bottom: 65px;
+        left: 0;
+        width: 100%;
+        background: red;
+    }
+    .scroll_top {
+        height: 30px;
+        line-height: 30px;
+        width: 100%;
+        background: white;
+    }
+    .scroll_top div {
+        float: left;
+        width: 33.333%;
+        height: 100%;
+        text-align: center;
+    }
+    .scroll_top div span {
+        display: inline-block;
+        width: 50px;
+        height: 100%;
+    }
+    .scroll_item {
+        display: none;
+    }
+    .scroll_item_left {
+        float: left;
+        width: 60px;
+        background: gray;
+    }
+    .leftItem {
+        width: 100%;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        background: gold;
+    }
+    .scroll_item_right {
+        float: right;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div class="head">
+        <img src="F:\\eleMobile\\imgage\\commodity.png">
+        <div class="navigation">
+            <div class="headLeft"><i class="fas fa-arrow-left"></i></i>
+            </div>
+            <div class="headRight"><i class="fas fa-ellipsis-v"></i></div>
+            <div class="headMiddle">
+                <div class="searchBar"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 主体 -->
+    <div class="container">
+        <div class="container_brandIcon"></div>
+        <div class="container_favoriteIcon"></div>
+        <div class="container_top"></div>
+        <div class="container_bottom"></div>
+    </div>
+    <!-- 滚动 -->
+    <div id="wrapper">
+        <ul>
+            <li>
+                <div class="scroll_top">
+                    <div><span>点餐</span></div>
+                    <div><span>评价</span></div>
+                    <div><span>商家</span></div>
+                </div>
+                <div class="scroll_item" style="display: block">
+                    <div class="scroll_item_left">
+                        <div class="leftItem"><i class="fab fa-hotjar"></i><span>热销</span></div>
+                        <div class="leftItem"><span>优惠</span></div>
+                        <div class="leftItem"><span>解暑神器</span></div>
+                        <div class="leftItem"><span>三米粥记</span></div>
+                        <div class="leftItem"><span>生滚咸粥</span></div>
+                        <div class="leftItem"><span>养颜甜粥</span></div>
+                        <div class="leftItem"><span>海鲜粥</span></div>
+                        <div class="leftItem"><span>颜值套餐任意配</span></div>
+                        <div class="leftItem"><span>面点主食</span></div>
+                        <div class="leftItem"><span>炸物新语</span></div>
+                        <div class="leftItem"><span>餐间情侣</span></div>
+                        <div class="leftItem"><span>扫码枪1-20元红包</span></div>
+                        <div class="leftItem"><span>关于配送</span></div>
+                        <div class="leftItem"><span>领取福利</span></div>
+                    </div>
+                    <div class="scroll_item_right"></div>
+                </div>
+                <div class="scroll_item"></div>
+                <div class="scroll_item"></div>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+    window.onload = function() {
+
+        commodityDetail.initScroll();
+    }
+    var commodityDetail = (function() {
+        return {
+            // 初始滚动
+            initScroll: function() {
+                var mainScroll = new IScroll("#wrapper", {
+                    probeType: 3
+                });
+            }
+        }
+    })()
+    </script>
+</body>
+
+</html>
