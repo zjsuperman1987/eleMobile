@@ -24,6 +24,14 @@ PubAjax = (function () {
 })();
 
 
+//公共方法 =======================
+//控制字符
+function LimitNumber(txt, maxLetter) {
+    var str = txt;
+    str = str.substr(0, maxLetter) + '...';
+    return str;
+}
+
 //页面初始化
 window.onload = function () {
     //定位
@@ -41,6 +49,8 @@ window.onload = function () {
     InitControl.initPullRefresh();
     //跳转详情页面
     InitControl.initCommodityDetails();
+
+   
 }
 
 var count = 1;
@@ -103,6 +113,7 @@ var InitControl = (function () {
                 // 商品列表
                 $(result.contract_customer_brand_list).each(function (i, item) {
                     if (i < 10 * count) {
+                        console.log(count);
                         $('.recommendMerchant_content_list_itemWrapper').append("<div class='recommendMerchant_content_list_item' data-contractGUID=" + item.ContractGUID + " data-customerGUID=" + item.CustomerGUID + ">" +
                                     "<div class='recommendMerchant_content_list_left'>" +
                                         "<div class='recommendMerchant_content_list_left_topImg'>" +
@@ -187,13 +198,6 @@ var InitControl = (function () {
         },
         //点击排序
         InitSort: function () {
-            //控制字数
-            function LimitNumber(txt) {
-                var str = txt;
-                str = str.substr(0, 4) + '...';
-                return str;
-            }
-
             $('.recommendMerchant_sort_item').on('click', function (ev) {
                 switch ($(this).text().trim()) {
                     case "好评优先":
@@ -207,7 +211,9 @@ var InitControl = (function () {
                         break;
                     default:
                         if (!$('.recommendMerchant_sort_item').eq(0).find('i').hasClass('fa-caret-up')) {
-                            Index0.scrollToElement($('.recommendMerchant')[0]);
+                            if ($('.searchPage').css("display") == "none") {
+                                Index0.scrollToElement($('.recommendMerchant')[0]);
+                            }
                             $('.sort_triangle').removeClass('fa-caret-down').addClass('fa-caret-up').css('color', '#1B8CE0');
                             $('.recommendMerchant_shadow, .sort_mode').show();
                             Index0.disable();
@@ -221,7 +227,7 @@ var InitControl = (function () {
                                 $('.check').remove();
                                 $(node).append('<span class="check"><i class="fa fa-check"></i></span>');
                             }
-                            $('.sort_mode_content_Item_font').text(LimitNumber($(node).find('span').eq(0).text()));
+                            $('.sort_mode_content_Item_font').text(LimitNumber($(node).find('span').eq(0).text(), 4));
                             $('.recommendMerchant_shadow, .sort_mode').hide();
                             InitControl.init($(node).find('span').eq(0).text());
                             Index0.enable();
@@ -237,49 +243,8 @@ var InitControl = (function () {
         },
         //点击搜索
         initSearch: function () {
-            var searchScroll;
-            $('#search input').on("click", function () {
-                $(".searchPage").show();
-                var history = localStorage.getItem("history");
-                if (history) {
-                    history = history.split(',');
-                    refreshHistory(history);
-                } else {
-                    $('.history').empty().append('<div class="history_title"><span>历史搜索</span><i class="far fa-trash-alt"></i></div>');
-                    return;
-                }
-            });
-            $('.header_left').on("click", function () {
-                $(".searchPage").hide();
-                $('.searchResult').hide();
-                Index0.enable();
-                if (searchScroll) {
-                    searchScroll.disable();
-                }
-            });
-            $(".header_right").on("click", function () {
-                var historyValue = localStorage.getItem("history");
-                var addValue = $(".searchContent input").val().trim();
-                if (!addValue) {
-                    return;
-                }
-                if (!historyValue) {
-                    localStorage.setItem("history", addValue);
-                }
-
-                if (historyValue && $.inArray(addValue, historyValue.split(',')) == -1) {
-                    if (historyValue.split(",").length == 10) {
-                        historyArray = historyValue.split(",");
-                        historyArray.pop();
-                        historyArray.unshift(addValue);
-                        localStorage.setItem("history", historyArray);
-                    }
-                    else {
-                        localStorage.setItem("history", addValue + "," + historyValue)
-                    }
-                }
-
-                PubAjax.post("selectCustomerBrandInfo", { filter: $('.searchContent input').val().trim() }, function (result) {
+            function searchPost(search) {
+                PubAjax.post("selectCustomerBrandInfo", { filter: search }, function (result) {
                     if (result) {
                         $(".searchResultList_item").remove();
                         $.each(result.contract_customer_brand_list, function (i, item) {
@@ -338,6 +303,58 @@ var InitControl = (function () {
                         })
                     }
                 })
+            }
+
+
+            var searchScroll;
+            $('#search input').on("touchstart", function (e) {
+                $(".searchPage").show();
+                var history = localStorage.getItem("history");
+                if (history) {
+                    history = history.split(',');
+                    refreshHistory(history);
+                } else {
+                    $('.history').empty().append('<div class="history_title"><span>历史搜索</span><i class="far fa-trash-alt"></i></div>');
+                    return;
+                }
+            });
+            $('.header_left').on("click", function () {
+                $(".searchPage").hide();
+                $('.searchResult').hide();
+                Index0.enable();
+                var scrollTop = $('.scroller').css('transform').replace(/[^0-9\-,]/g, '').split(',')[5]
+                if (scrollTop < -440) {
+                    $('.recommendMerchant_sort').insertAfter('.searchWrapper');
+                } else {
+                    $('.recommendMerchant_content').prepend($('.recommendMerchant_sort')[0]);
+                }
+                if (searchScroll) {
+                    searchScroll.disable();
+                }
+            });
+            $(".header_right").on("click", function () {
+                var historyValue = localStorage.getItem("history");
+                var addValue = $(".searchContent input").val().trim();
+                if (!addValue) {
+                    return;
+                }
+                if (!historyValue) {
+                    localStorage.setItem("history", addValue);
+                }
+
+                if (historyValue && $.inArray(addValue, historyValue.split(',')) == -1) {
+                    if (historyValue.split(",").length == 10) {
+                        historyArray = historyValue.split(",");
+                        historyArray.pop();
+                        historyArray.unshift(addValue);
+                        localStorage.setItem("history", historyArray);
+                    }
+                    else {
+                        localStorage.setItem("history", addValue + "," + historyValue)
+                    }
+                }
+                searchPost($('.searchContent input').val().trim());
+
             });
             function refreshHistory(history) {
                 $('.history').empty().append('<div class="history_title"><span>历史搜索</span><i class="far fa-trash-alt"></i></div>');
@@ -348,6 +365,10 @@ var InitControl = (function () {
                 $.each(history, function (i, item) {
                     $('.history').append('<div class="history_content">' + item + '</div>');
                 })
+                $('.history_content').on('click', function (e) {
+                    searchPost($(this).text())
+                    $('.searchContent input').val($(this).text())
+                });
             }
         },
         //下拉刷新
@@ -377,6 +398,7 @@ var InitControl = (function () {
                     InitControl.init();
                     Index0.refresh();
                 }, 1000);
+                count++;
             }
             function pullDown() {
                 setTimeout(function () {
@@ -384,7 +406,6 @@ var InitControl = (function () {
                     Index0.refresh();
                     Index0.scrollTo(0, -$('.pullDown').outerHeight());
                 }, 1000);
-                count++;
             }
             //下拉刷新
             refresher.init({
@@ -416,7 +437,7 @@ var InitControl = (function () {
                                                 "<img src='../../_image/Login.jpg' />" +
                                             "</div>" +
                                             "<div class='swiperItem_bottom'>" +
-                                                item.FormatTypeName + "</div>" +
+                                                LimitNumber(item.FormatTypeName, 2) + "</div>" +
                                         "</div>"
                                         )
                     }
@@ -426,7 +447,7 @@ var InitControl = (function () {
                                                 "<img src='../../_image/Login.jpg' />" +
                                             "</div>" +
                                             "<div class='swiperItem_bottom'>" +
-                                                item.FormatTypeName + "</div>" +
+                                                LimitNumber(item.FormatTypeName, 2) + "</div>" +
                                         "</div>"
                                         )
                     }
@@ -455,7 +476,6 @@ var InitControl = (function () {
                     }
                 });
             });
-
         },
         //跳转 商品详情
         initCommodityDetails: function () {
