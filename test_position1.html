@@ -1,3 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="pullToRefresh.css">
+    <script type="text/javascript" language="javascript" src="/Mobile/WeChat/_js/jquery.min.js"></script>
+    <!-- pullToRefresh -->
+    <script type="text/javascript" language="javascript" src="pullToRefresh.js"></script>
+    <script type="text/javascript" language="javascript" src="iscroll-probe.js"></script>
+    <script type="text/javascript" src="test6.js"></script>
+    <!-- <script type="text/javascript" language="javascript" src="iscroll.js"></script> -->
+    <title>pullToRefresh</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        overflow: hidden;
+    }
+    /*头部*/
+
+    .head {
+        width: 100%;
+        height: 100px;
+        background: pink;
+    }
+    .head img {
+        width: 100%;
+        height: 100%;
+    }
+    .searchBarWrapper {
+        position: absolute;
+        top: 10px;
+        width: 100%;
+        height: 30px;
+    }
+    .searchLeft {
+        width: 30px;
+        height: 30px;
+        background: red;
+        float: left;
+        margin-left: 10px;
+    }
+    .searchRight {
+        width: 30px;
+        height: 30px;
+        background: red;
+        float: right;
+        margin-right: 10px;
+    }
+    .searchMiddle {
+        width: 100%;
+        height: 100%;
+        padding: 0 50px 0 50px;
+    }
+    .search {
+        width: 100%;
+        height: 100%;
+        background: white;
+        opacity: 0;
+    }
+    /*头部定位*/
+
+    .headPosition {
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        clip: rect(0px, 320px, 60px, 0px);
+    }
+    /*内容*/
+    .content {
+        position: relative;
+        width: 100%;
+        height: 468px;
+        background: purple;
+    }
+
+    /*content 定位*/
+    .contentPosition {
+        position: absolute;
+        top: 100px;
+    }
+
+    /*滚动*/
+    .scrollWrapper {
+        position: absolute;
+        top: 168px;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background: gold;
+    }
+    #mainScroll {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        /*overflow: hidden;*/
+    }
+    .scroller_item {
+        width: 100%;
+        overflow: hidden;
+    }
+    /*Icon*/
+
+    .brandIcon {
+        position: absolute;
+        left: 50%;
+        margin-left: -30px;
+        top: -40px;
+        width: 60px;
+        height: 60px;
+        background: red;
+    }
+    .favoriteIcon {
+        position: absolute;
+        right: 0;
+        margin-right: 10px;
+        top: -15px;
+        width: 30px;
+        height: 30px;
+        background: red;
+    }
+
+    .brandDetailScroll {
+    	overflow-y: scroll;
+    }
+
+    </style>
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div class="head">
+        <img src="images/testImage.jpg">
+        <div class="searchBarWrapper">
+            <div class="searchLeft"></div>
+            <div class="searchRight"></div>
+            <div class="searchRight rightOpacity"></div>
+            <div class="searchRight rightOpacity"></div>
+            <div class="searchMiddle">
+                <div class="search"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 内容 -->
+    <div class="content">
+        <!-- brandIcon -->
+        <div class="brandIcon"></div>
+        <div class="favoriteIcon"></div>
+        <div class="scrollWrapper">
+            <div id="mainScroll">
+                <div id='scroller'>
+                    <div class="scroller_item">
+                        <div style="width: 100%;height: 100px;background: red"></div>
+                        <div style="width: 100%;height: 200px;background: gold"></div>
+                        <div class= "brandDetail" style="width: 100%;height: 518px;background: purple">
+							<div style="width: 100%;height: 300px; background: blue;"></div>                        	
+							<div style="width: 100%;height: 300px; background: red;"></div>                        	
+							<div style="width: 100%;height: 300px; background: gold;"></div>                        	
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
 window.onload = function() {
     initControl.initScroll();
 }
