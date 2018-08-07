@@ -180,12 +180,6 @@
 
 
 
-
-
-
-
-
-
 window.onload = function() {
     initControl.initScroll();
 }
@@ -267,15 +261,17 @@ var initControl = (function() {
                 // 最底部页面
                 if (y <= -508) {
                     if (clipCount < 10) {
-                    	bottomBorder -= 1
-                    	console.log(bottomBorder)
+                        bottomBorder -= 1
+                        console.log(bottomBorder, clipCount)
                         $('.headPosition').css("clip", "rect(0px, 320px," + bottomBorder + "px, 0px)")
                         clipCount++;
                     }
                 }
                 if (y > -518) {
                     if (clipCount) {
-                        $('.headPosition').css("clip", "rect(0px, 320px," + bottomBorder-- + "px, 0px)")
+                        bottomBorder += 1
+                        console.log(bottomBorder, clipCount)
+                        $('.headPosition').css("clip", "rect(0px, 320px," + bottomBorder + "px, 0px)")
                         clipCount--;
                     }
                 }
