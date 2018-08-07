@@ -1,70 +1,130 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html>
+window.onload = function() {
+    initControl.initScroll();
+}
 
-<head>
-    <title></title>
-    <style type="text/css">
-    * {
-    	padding: 0;
-    	margin: 0;
-    }
-    .bottomBar {
-        height: 150px;
-        width: 100%;
-        background: gold;
-        position: fixed;
-        bottom: 0;
-    }
-    .content {
-        background-color: #cc85d9;
-        width: 100%;
-        position: absolute;
-        top: 0px;
-        bottom: 150px;
-        left: 0px;
-    }
-    </style>
-</head>
 
-<body>
-    <div class="content"></div>
-    <div class="bottomBar"></div>
-</body>
+var initControl = (function() {
+    return {
+        init: function() {
 
-=======
-<!DOCTYPE html>
-<html>
+        },
+        // 滚动初始化
+        initScroll: function() {
+            var blurCount = 0;
+            var iconCount = 10;
+            var scaleValue = 1;
+            var searchValue = 0;
+            var clipCount = 0;
+            var bottomBorder = 60;
 
-<head>
-    <title></title>
-    <style type="text/css">
-    * {
-    	padding: 0;
-    	margin: 0;
+
+            function headAnimate() {
+                var y = this.y >> 0;
+                // console.log(y);
+
+                if (y <= 0) {
+                    $("#scroller").css("transform", 'translateY(0)');
+                    $(".content").css("transform", 'translateY(' + y + 'px)');
+
+                    //图像模糊
+                    if (y >= -10) {
+                        $('.head img').css('filter', 'blur(' + -y + 'px)');
+                    }
+                }
+
+                // icon 缩小 和 隐藏
+
+                if (y <= -20 && iconCount) {
+
+                    $('.headBar img').css('filter', 'blur(10px)');
+                    scaleValue = iconCount == 1 ? "0" : "." + (iconCount - 1);
+                    // 商标icon 缩小
+                    $('.brandIcon').css('transform', 'scale(' + scaleValue + ')');
+                    $('.favoriteIcon').css('transform', 'scale(' + scaleValue + ')');
+                    // icon 透明度 设置
+                    $('.rightOpacity').css('opacity', scaleValue);
+                    iconCount--;
+
+                }
+                if (y > -20 && iconCount < 10) {
+                    scaleValue = iconCount == 9 ? 1 : "." + (iconCount + 1);
+                    // 商标icon 放大
+                    $('.brandIcon').css('transform', 'scale(' + scaleValue + ')');
+                    $('.favoriteIcon').css('transform', 'scale(' + scaleValue + ')');
+                    // icon 透明度 设置
+                    $('.rightOpacity').css('opacity', scaleValue);
+                    iconCount++;
+                }
+
+                // 搜索框
+                if (y <= -30 && searchValue < 10) {
+                    opaValue = searchValue == 9 ? 1 : "." + (searchValue + 1);
+                    $('.search').css("opacity", opaValue);
+                    searchValue++;
+                }
+                if (y > -30 && searchValue) {
+                    opaValue = searchValue == 1 ? 0 : "." + (searchValue - 1);
+                    $('.search').css("opacity", opaValue);
+                    searchValue--;
+                }
+                //头部定位
+                if (y <= -40) {
+                    $('.head').addClass('headPosition');
+                    $('.content').addClass('contentPosition');
+                } else {
+                    $('.head').removeClass('headPosition');
+                    $('.content').removeClass('contentPosition');
+                }
+                // console.log(this.y)
+                // 最底部页面
+                if (y <= -508) {
+                    if (clipCount < 10) {
+                    	bottomBorder -= 1
+                    	console.log(bottomBorder)
+                        $('.headPosition').css("clip", "rect(0px, 320px," + bottomBorder + "px, 0px)")
+                        clipCount++;
+                    }
+                }
+                if (y > -518) {
+                    if (clipCount) {
+                        $('.headPosition').css("clip", "rect(0px, 320px," + bottomBorder-- + "px, 0px)")
+                        clipCount--;
+                    }
+                }
+            }
+
+            //底部滚动
+
+            // var brandDetail = document.querySelector(".brandDetail");
+            // var startY = moveY = endY = 0;
+
+
+            // brandDetail.addEventListener("touchstart", function(e) {
+            //     startY = e.touches[0].pageY
+            //     console.log("startY", startY)
+            // })
+            // brandDetail.addEventListener("touchmove", function(e) {
+            //     moveY = e.touches[0].pageY - startY;
+            //     console.log("moveY", moveY)
+            // })
+            // brandDetail.addEventListener("touchend", function(e) {
+            //     endY = moveY;
+            //     console.log("end", endY)
+            // })
+
+
+
+            var mainScroll = new IScroll("mainScroll", {
+                probeType: 3,
+                subMargin: -208
+            })
+            mainScroll.on("scroll", headAnimate);
+            mainScroll.on("scrollEnd", headAnimate);
+            mainScroll.on("scrollCancel", headAnimate);
+
+
+
+
+        }
     }
-    .bottomBar {
-        height: 150px;
-        width: 100%;
-        background: gold;
-        position: fixed;
-        bottom: 0;
-    }
-    .content {
-        background-color: #cc85d9;
-        width: 100%;
-        position: absolute;
-        top: 0px;
-        bottom: 150px;
-        left: 0px;
-    }
-    </style>
-</head>
-
-<body>
-    <div class="content"></div>
-    <div class="bottomBar"></div>
-</body>
-
->>>>>>> 0f7abaad45ea9eb1b85ce09b871ab589ad9966d3
-</html>
+})();
