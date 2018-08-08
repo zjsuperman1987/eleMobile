@@ -13,13 +13,15 @@
     <script type="text/javascript" language="javascript" src="pullToRefresh.js"></script>
     <script type="text/javascript" language="javascript" src="iscroll-probe.js"></script>
     <script type="text/javascript" src="test6.js"></script>
-    <!-- <script type="text/javascript" language="javascript" src="iscroll.js"></script> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <title>pullToRefresh</title>
     <style type="text/css">
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        font-size: 12px;
+        font-style: normal;
     }
     body {
         overflow: hidden;
@@ -44,17 +46,34 @@
     .searchLeft {
         width: 30px;
         height: 30px;
-        background: red;
+        line-height: 30px;
+        text-align: center;
+        color: white;
         float: left;
         margin-left: 10px;
     }
     .searchRight {
         width: 30px;
         height: 30px;
-        background: red;
+        line-height: 30px;
+        text-align: center;
+        color: white;
+        /*background: red;*/
         float: right;
         margin-right: 10px;
     }
+    .spell {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        text-align: center;
+        border: 1px solid white;
+        border-radius: 12px;
+        font-style: normal;
+        font-size: 12px;
+    }
+
     .searchMiddle {
         width: 100%;
         height: 100%;
@@ -63,8 +82,20 @@
     .search {
         width: 100%;
         height: 100%;
+        line-height: 30px;
+        color: gray;
+        text-align: center;
         background: white;
         opacity: 0;
+        font-size: 12px;
+    }
+    .search span {
+        font-size: 12px;
+        color: gray;
+        margin-left: 10px;
+    }
+    .search i {
+        color: gray;
     }
     /*头部定位*/
 
@@ -75,27 +106,27 @@
         clip: rect(0px, 320px, 60px, 0px);
     }
     /*内容*/
+
     .content {
         position: relative;
         width: 100%;
         height: 468px;
-        background: purple;
+        /*background: purple;*/
     }
-
     /*content 定位*/
+
     .contentPosition {
         position: absolute;
         top: 100px;
     }
-
     /*滚动*/
+
     .scrollWrapper {
         position: absolute;
         top: 168px;
         left: 0;
         bottom: 0;
         width: 100%;
-        background: gold;
     }
     #mainScroll {
         position: absolute;
@@ -131,9 +162,103 @@
     }
 
     .brandDetailScroll {
-    	overflow-y: scroll;
+        overflow-y: scroll;
     }
+    /*信息头部*/
 
+    .brandInfoTop {
+        height: 168px;
+        width: 100%;
+        background: white;
+    }
+    .brandInfoTop div {
+        margin-bottom: 5px;
+        text-align: center;
+    }
+    .brandName {
+        text-align: center;
+        padding-top: 30px;
+    }
+    .brandName span {
+        color: black;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    .fullReduction span {
+        margin-left: 5px;
+    }
+    .Rightdiscounts {
+        float: right;
+        margin-right: 20px;
+    }
+    .Rightdiscounts span,
+    .Rightdiscounts i {
+        color: black;
+    }
+    .get {
+        font-size: 0;
+        letter-spacing: -3px;
+    }
+    .get span {
+        font-size: 12px;
+        letter-spacing: 0;
+        display: inline-block;
+        padding: 5px;
+        text-align: center;
+        background: gold;
+    }
+    .get i {
+        margin-right: 5px;
+    }
+    .get span:nth-child(2) {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    .bottomAnnouncement {
+        width: 100%;
+        height: 260px;
+        background: white;
+        overflow-y: scroll;
+    }
+    .bottom_inner {
+        width: 100%;
+        height: 30px;
+        margin-top: 10px;
+        text-align: center;
+        font-size: 26px;
+        background: white;
+    }
+    .bottom_inner i {
+        font-size: 20px;
+        color: gray;
+    }
+    .bottomAnnouncementItem {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+    .bottomAnnouncementItemTop span {
+        font-size: 14px;
+        color: black;
+    }
+    .bottomAnnouncementList {
+        text-align: left;
+        margin-top: 20px;
+    }
+    .bottomAnnouncementList i {
+        padding: 5px;
+        background: gold;
+        border-radius: 3px;
+    }
+    .bottomAnnouncementList span {
+        margin-left: 10px;
+    }
+    .lastList {
+    	margin-top: 10px;
+    }
+    .lastList span {
+    	margin-left: 0;
+    }
     </style>
 </head>
 
@@ -142,12 +267,12 @@
     <div class="head">
         <img src="images/testImage.jpg">
         <div class="searchBarWrapper">
-            <div class="searchLeft"></div>
-            <div class="searchRight"></div>
-            <div class="searchRight rightOpacity"></div>
-            <div class="searchRight rightOpacity"></div>
+            <div class="searchLeft"><i class="fas fa-arrow-left"></i></div>
+            <div class="searchRight"><i class="fas fa-ellipsis-v"></i></div>
+            <div class="searchRight rightOpacity"><i class="spell">拼</i></div>
+            <div class="searchRight rightOpacity"><i class="fas fa-search"></i></div>
             <div class="searchMiddle">
-                <div class="search"></div>
+                <div class="search"><i class="fas fa-search"></i><span>想要什么搜一搜</span></div>
             </div>
         </div>
     </div>
@@ -156,16 +281,93 @@
         <!-- brandIcon -->
         <div class="brandIcon"></div>
         <div class="favoriteIcon"></div>
+        <div class="brandInfoTop">
+            <div class="brandName">
+                <span>乡村基(南坪西路店)</span>
+            </div>
+            <div class="evalute">
+                评价<span>4.9</span> 月售
+                <span>2149</span> 商家配送约
+                <span>47</span>分钟
+            </div>
+            <div class="get">
+                <span>￥8</span>
+                <span><i class="fas fa-crown"></i>无门槛</span>
+                <span>领取</span>
+            </div>
+            <div class="fullReduction">
+                <i>满减</i>:
+                <span>满25减8,</span>
+                <span>满35减10,</span>
+                <span>满45减20</span>
+                <div class="Rightdiscounts">
+                    <span>5个优惠</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+            <div class="announcement">
+                <i>公告</i>:
+                <span>欢迎光临华莱士玖熙国际餐厅：新店开业活动多...</span>
+            </div>
+        </div>
+        <!-- 底部告示栏 -->
+        <div class="bottomAnnouncement">
+            <div class="bottomAnnouncementItem">
+                <div class="bottomAnnouncementItemTop"><span>优惠</span></div>
+                <div class="bottomAnnouncementList">
+                    <i>满减</i>
+                    <span>满25减8</span>
+                    <span>满30减10</span>
+                    <span>满40减20</span>
+                </div>
+                <div class="bottomAnnouncementList">
+                    <i>会员</i>
+                    <span>超级会员领8元无门槛红包</span>
+                </div>
+                <div class="bottomAnnouncementList">
+                    <i>特价</i>
+                    <span>特价商品0.2元起</span>
+                </div>
+                <div class="bottomAnnouncementList">
+                    <i>首单</i>
+                    <span>新用户下单立减17元(不与其他活动同享)</span>
+                </div>
+                <div class="bottomAnnouncementList">
+                    <i>折扣</i>
+                    <span>满25减8</span>
+                    <span>满30减10</span>
+                    <span>满40减20</span>
+                </div>
+            </div>
+            <div class="bottomAnnouncementItem">
+                <div class="bottomAnnouncementItemTop"><span>服务</span></div>
+                <div class="bottomAnnouncementList">
+                    <i>开发票</i>
+                    <span>满25减8</span>
+                    <span>满30减10</span>
+                    <span>满40减20</span>
+                </div>
+            </div>
+            <div class="bottomAnnouncementItem">
+                <div class="bottomAnnouncementItemTop"><span>公告</span></div>
+                <div class="bottomAnnouncementList lastList">
+                     <span>临时搭建洛杉矶洛杉矶；啊记录；来上课进来撒了撒看见了多少空间老师来看待世界浪费时间领导说了家里的事</span>
+                </div>
+            </div>
+        </div>
+        <!-- 内层底部 -->
+        <div class="bottom_inner"><i class="fas fa-chevron-up"></i></div>
+        <!-- 滚动页面 -->
         <div class="scrollWrapper">
             <div id="mainScroll">
                 <div id='scroller'>
                     <div class="scroller_item">
                         <div style="width: 100%;height: 100px;background: red"></div>
                         <div style="width: 100%;height: 200px;background: gold"></div>
-                        <div class= "brandDetail" style="width: 100%;height: 518px;background: purple">
-							<div style="width: 100%;height: 300px; background: blue;"></div>                        	
-							<div style="width: 100%;height: 300px; background: red;"></div>                        	
-							<div style="width: 100%;height: 300px; background: gold;"></div>                        	
+                        <div class="brandDetail" style="width: 100%;height: 518px;background: purple">
+                            <div style="width: 100%;height: 300px; background: blue;"></div>
+                            <div style="width: 100%;height: 300px; background: red;"></div>
+                            <div style="width: 100%;height: 300px; background: gold;"></div>
                         </div>
                     </div>
                 </div>
@@ -173,14 +375,9 @@
         </div>
     </div>
 </body>
-
-
-
-
-
-
-
-window.onload = function() {
+	
+	=================================================================
+	window.onload = function() {
     initControl.initScroll();
 }
 
@@ -198,9 +395,91 @@ var initControl = (function() {
             var searchValue = 0;
             var clipCount = 0;
             var bottomBorder = 60;
-
+            var switchSubScroll = false;
 
             function headAnimate() {
+                var y = this.y >> 0;
+                // console.log(y);
+
+                if (y <= 0) {
+                    $("#scroller").css("transform", 'translateY(0)');
+                    $(".content").css("transform", 'translateY(' + y + 'px)');
+
+                    //图像模糊
+                    if (y >= -10) {
+                        $('.head img').css('filter', 'blur(' + -y + 'px)');
+                    }
+                }
+
+                // icon 缩小 和 隐藏
+
+                if (y <= -20 && iconCount) {
+
+                    $('.headBar img').css('filter', 'blur(10px)');
+                    scaleValue = iconCount == 1 ? "0" : "." + (iconCount - 1);
+                    // 商标icon 缩小
+                    $('.brandIcon').css('transform', 'scale(' + scaleValue + ')');
+                    $('.favoriteIcon').css('transform', 'scale(' + scaleValue + ')');
+                    // icon 透明度 设置
+                    $('.rightOpacity').css('opacity', scaleValue);
+                 
+                    iconCount--;
+
+                }
+                if (y > -20 && iconCount < 10) {
+                    scaleValue = iconCount == 9 ? 1 : "." + (iconCount + 1);
+                    // 商标icon 放大
+                    $('.brandIcon').css('transform', 'scale(' + scaleValue + ')');
+                    $('.favoriteIcon').css('transform', 'scale(' + scaleValue + ')');
+                    // icon 透明度 设置
+                    $('.rightOpacity').css('opacity', scaleValue);
+
+                    iconCount++;
+                }
+
+                // 搜索框
+                if (y <= -30 && searchValue < 10) {
+                    opaValue = searchValue == 9 ? 1 : "." + (searchValue + 1);
+                    $('.search').css("opacity", opaValue);
+                    searchValue++;
+                }
+                if (y > -30 && searchValue) {
+                    opaValue = searchValue == 1 ? 0 : "." + (searchValue - 1);
+                    $('.search').css("opacity", opaValue);
+                    searchValue--;
+                }
+                //头部定位
+                if (y <= -40) {
+                    $('.head').addClass('headPosition');
+                    $('.content').addClass('contentPosition');
+                } else {
+                    $('.head').removeClass('headPosition');
+                    $('.content').removeClass('contentPosition');
+                }
+
+                // 最底部页面
+                if (y <= -508) {
+                    // if (clipCount < 10) {
+                    //     bottomBorder -= 1
+                    //     $('.headPosition').css("clip", "rect(0px, 320px," + bottomBorder + "px, 0px)")
+                    //     clipCount++;
+
+                    // if (clipCount == 10) {
+                    //     this.disable();
+                    // }
+                    // }
+                }
+                if (y > -518) {
+                    // if (clipCount) {
+                    //     bottomBorder += 1
+                    //     $('.headPosition').css("clip", "rect(0px, 320px," + bottomBorder + "px, 0px)")
+                    //     clipCount--;
+                    // }
+                }
+            }
+
+ 
+            function headAnimateEnd() {
                 var y = this.y >> 0;
                 // console.log(y);
 
@@ -257,45 +536,63 @@ var initControl = (function() {
                     $('.head').removeClass('headPosition');
                     $('.content').removeClass('contentPosition');
                 }
-                // console.log(this.y)
+                console.log(y);
                 // 最底部页面
                 if (y <= -508) {
-                    if (clipCount < 10) {
-                        bottomBorder -= 1
-                        console.log(bottomBorder, clipCount)
-                        $('.headPosition').css("clip", "rect(0px, 320px," + bottomBorder + "px, 0px)")
-                        clipCount++;
-                    }
+                    // if (clipCount < 10) {
+                    //     bottomBorder -= 1
+                    //     $('.headPosition').css("clip", "rect(0px, 320px," + bottomBorder + "px, 0px)")
+                    //     clipCount++;
+
+                    // if (clipCount == 10) {
+                    //     this.disable();
+                    // }
+                    // }	
+                    // this.disable();
+                    that = this;
+                    this.disable();
+                    $('.brandDetail').addClass("brandDetailScroll");
+                } else {
+                    // $('.brandDetail').removeClass("brandDetailScroll");
                 }
-                if (y > -518) {
-                    if (clipCount) {
-                        bottomBorder += 1
-                        console.log(bottomBorder, clipCount)
-                        $('.headPosition').css("clip", "rect(0px, 320px," + bottomBorder + "px, 0px)")
-                        clipCount--;
-                    }
-                }
+
+
             }
 
-            //底部滚动
+            //监听二级滚动
+            var brandDetail = document.querySelector(".brandDetail");
+            var startY = moveY = p = t = 0;
 
-            // var brandDetail = document.querySelector(".brandDetail");
-            // var startY = moveY = endY = 0;
 
+            brandDetail.addEventListener("touchstart", function(e) {
+                startY = e.touches[0].pageY
+            })
+            brandDetail.addEventListener("touchmove", function(e) {
+                moveY = e.touches[0].pageY - startY;
+                switchTop = $('.brandDetail').scrollTop();
 
-            // brandDetail.addEventListener("touchstart", function(e) {
-            //     startY = e.touches[0].pageY
-            //     console.log("startY", startY)
-            // })
-            // brandDetail.addEventListener("touchmove", function(e) {
-            //     moveY = e.touches[0].pageY - startY;
-            //     console.log("moveY", moveY)
-            // })
-            // brandDetail.addEventListener("touchend", function(e) {
-            //     endY = moveY;
-            //     console.log("end", endY)
-            // })
+                if (moveY > 0 && switchTop == 0) {
+                    $('.brandDetail').removeClass("brandDetailScroll");
+                    mainScroll.enable()
+                }
+            })
+            brandDetail.addEventListener("scroll", function(e){
+            	p = $(".brandDetail").scrollTop()
+            	console.log(p);
 
+    			if(p - t > 0){
+    				console.log("上啦")
+    			}else{
+    				if( p == 0) {
+	                    $('.brandDetail').removeClass("brandDetailScroll");
+    					mainScroll.enable()
+    				}
+    			}
+
+            	window.setTimeout(function(){
+            		t = p;
+            	},100)
+            })
 
 
             var mainScroll = new IScroll("mainScroll", {
@@ -303,11 +600,8 @@ var initControl = (function() {
                 subMargin: -208
             })
             mainScroll.on("scroll", headAnimate);
-            mainScroll.on("scrollEnd", headAnimate);
+            mainScroll.on("scrollEnd", headAnimateEnd);
             mainScroll.on("scrollCancel", headAnimate);
-
-
-
 
         }
     }
